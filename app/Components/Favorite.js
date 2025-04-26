@@ -9,9 +9,9 @@ export default function Favorite({ className = '' }) {
   return (
     <div className={`cursor-pointer ${className}`} onClick={() => setIsFavorite(!isFavorite)}>
       {isFavorite ? (
-        <FaHeart size={24} className="text-secondary transition-transform transform hover:scale-110" />
+        <FaHeart size={30} className="text-secondary transition-transform transform hover:scale-110" />
       ) : (
-        <FaRegHeart size={24} className="text-secondary transition-transform transform hover:scale-110" />
+        <FaRegHeart size={30} className="text-secondary transition-transform transform hover:scale-110" />
       )}
     </div>
   );

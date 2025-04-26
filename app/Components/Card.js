@@ -22,7 +22,7 @@ export default function Card ({
         {/*Start List of cards */}
    <div  className=' outline-2 outline-teal-500 self-stretch relative rounded-2xl rounded-tr-2xl w-full max-w-72 min-w-48   flex flex-col justify-start items-start shadow-defaultCard   transition-all hover:scale-105 ease-in-out bg-white'>
             <div className="relative w-full ">
-            <Favorite className=' absolute top-2 right-2'/>
+            <Favorite className=' absolute top-2 right-4'/>
             <Button variant="secondary" className="flex items-center gap-2 rounded-bl-none  "><MdDiscount/>50%</Button>
             <img src={image} alt="Book 1"  className=" self-stretch h-64 rounded-tl-2xl rounded-tr-2xl  w-full" />
             </div>
