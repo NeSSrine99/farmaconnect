@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import DropdownSubCategory from './DropdownSubCategory';
 import { FaAngleDown } from "react-icons/fa";
+import Link from 'next/link';
 
 
 export default function DropdownCategories() {
@@ -30,7 +31,7 @@ export default function DropdownCategories() {
             onClick={() => setOpenSub(openSub === index ? null : index )}
             className="flex items-center justify-between w-full py-1 text-left  text-textLight hover:bg-gray-100 gap-1"
           >
-            {category.name}
+            <Link href={`/categories`}>{category.name}</Link>
             {category.sub.length > 0 && <span><FaAngleDown /></span>}
           </button>
 
