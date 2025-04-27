@@ -26,7 +26,7 @@ export default function Navbar() {
             Catégories
             <FaAngleDown />
           </button>
-          {openCategories && <DropdownCategories className="top-0" />}
+          {openCategories && <DropdownCategories className=" absolute top-0 z-50" />}
         </div>
           
              {/* start  Search */}

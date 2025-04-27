@@ -16,6 +16,7 @@ export default function Card ({
     image = "/cardImgs/CetafilEcran.jpeg",
     nouveaux  ,
     rupture,
+    reduction = null
 
 }) {
     const router = useRouter();
@@ -25,15 +26,19 @@ export default function Card ({
    <div  className=' outline-2 outline-primary self-stretch relative rounded-2xl rounded-tr-2xl w-full max-w-72 min-w-48   flex flex-col justify-start items-start shadow-defaultCard   transition-all hover:scale-105 ease-in-out bg-white'>
             <div className="relative w-full ">
             <Favorite className=' absolute top-2 right-4'/>
-            <Button variant="secondary" className="flex items-center gap-2 rounded-bl-none  "><MdDiscount/>50%</Button>
-            <img src={image} alt="Book 1"  className=" self-stretch h-45 rounded-tl-2xl rounded-tr-2xl  w-full" />
+            {reduction && (
+                        <Button variant="secondary" className="absolute top-0 left-0 flex items-center gap-2 rounded-bl-none">
+                            <MdDiscount /> {reduction}%
+                        </Button>
+                    )}
+            <img src={image} alt="Book 1"  className=" self-stretch h-56 rounded-tl-2xl rounded-tr-2xl  w-full" />
             </div>
             <div className="px-2 py-2 self-stretch">
-            <div className='py-2 text-left '>
+            <div className=' text-left '>
             <h3 className=' text-neutral-400 text-sm font-semibold'>{marque}</h3>
             <h2 className="self-stretch  text-black text-[16px] font-bold ">{nom} </h2>
             </div>
-            <div className='self-stretch flex justify-between items-center py-4'>
+            <div className='self-stretch flex justify-between items-center py-2'>
                {/* اليسار */}
              <div className='text-left flex flex-col justify-start items-start gap-1'>
                  <p className='text-black text-sm font-medium'>{nouveaux}</p>
@@ -46,11 +51,11 @@ export default function Card ({
                    <p className='text-black text-[18px] font-bold'>{prix}</p>
                      </div>
                    </div>
-            <div className="py-4">
+            <div className="py-2">
                 <Rating />
             </div>
            
-            <div className="flex gap-2">
+            <div className="flex gap-2 ">
                 <Link href={`/categories/${id}`}><Button className="self-stretch w-full flex items-center  justify-center gap-2"><FaRegEye />Voir</Button></Link>
                 <Button className="self-stretch w-full flex items-center  justify-center gap-2"><MdOutlineAddShoppingCart />Ajouter</Button>
             </div>
