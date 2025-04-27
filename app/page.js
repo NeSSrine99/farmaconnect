@@ -1,3 +1,4 @@
+import ChatbotComponent from "./components/Chatboot";
 import Navbar from "./components/Navigation";
 
 
@@ -6,7 +7,8 @@ import Navbar from "./components/Navigation";
 export default function Home() {
   return (
     <div className=" ">
-      <Navbar />
+      
+      {/* <ChatbotComponent /> */}
 
     </div>
   );

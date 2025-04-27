@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 
 const Button = ({
   children,
-  type = 'button',
-  variant = 'primary', // primary, secondary, danger...
-  className = '',
+  type = "button",
+  variant = "primary", // primary, secondary, danger...
+  className = "",
 }) => {
-  const baseStyles = 'px-4 py-2 rounded-xl';
-  
-  const variants = {
-    primary: 'bg-primary hover:bg-hoverButtonPrimary text-white',
-    secondary: 'bg-secondary hover:bg-hoverButtonSecondary text-white',
-    tertiary: 'border-2 border-primary bg-white text-primary '
-    
-  };
+  const baseStyles = "px-4 py-2 rounded-xl";
 
+  const variants = {
+    primary:
+      "bg-primary border-2 border-primary hover:bg-hoverButtonPrimary text-white",
+    secondary: "bg-secondary hover:bg-hoverButtonSecondary text-white",
+    tertiary: "border-2 border-inside border-primary bg-white text-primary ",
+    third: "bg-white text-primary bg-opacity-25 backdrop-blur-md",
+  };
 
   return (
     <button

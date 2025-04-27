@@ -5,8 +5,7 @@ import DropdownSubCategory from './DropdownSubCategory';
 import { FaAngleDown } from "react-icons/fa";
 import Link from 'next/link';
 
-
-export default function DropdownCategories() {
+export default function DropdownCategories({ className = "absolute bg-white flex flex-col w-[200px] p-4 mt-2 shadow-defaultCard z-56" }) {
   const [openSub, setOpenSub] = useState(null);
 
   const categories = [
@@ -20,16 +19,15 @@ export default function DropdownCategories() {
     { name: 'Bio Médecines naturelles', sub: [] },
     { name: 'Matériel médical', sub: ['Black Olives', 'Green Olives'] },
     { name: 'Promotion', sub: [] },
-    
   ];
 
   return (
-    <div className="absolute bg-white  flex flex-col w-[200px]  p-4 mt-2  shadow-defaultCard z-56">
+    <div className={className}>
       {categories.map((category, index) => (
         <div key={index}>
           <button
-            onClick={() => setOpenSub(openSub === index ? null : index )}
-            className="flex items-center justify-between w-full py-1 text-left  text-textLight hover:bg-gray-100 gap-1"
+            onClick={() => setOpenSub(openSub === index ? null : index)}
+            className="flex items-center justify-between w-full py-1 text-left text-textLight hover:bg-gray-100 gap-1"
           >
             <Link href={`/categories`}>{category.name}</Link>
             {category.sub.length > 0 && <span><FaAngleDown /></span>}
