@@ -14,7 +14,7 @@ export default function Navbar() {
   const [openCategories, setOpenCategories] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between self-stretch gap-2 p-8 lg:p-10">
+    <nav className="flex items-center justify-between self-stretch gap-2  px-8 lg:px-10">
       {/* Categories */}
       <div className="">
         <button

@@ -17,6 +17,7 @@ export default function Card({
   rupture,
   reduction = null,
   Description,
+  category,
 }) {
   const router = useRouter();
   return (
