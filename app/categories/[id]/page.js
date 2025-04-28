@@ -29,6 +29,10 @@ const ProductDetails = () => {
         >
           Categories /
         </a>
+        <span className="text-black hover:underline font-semibold">
+          {" "}
+          {product.category} /{" "}
+        </span>
         <span className="ml-1 text-textLight">
           {" "}
           {product.marque} | {product.nom}{" "}
@@ -101,7 +105,8 @@ const ProductDetails = () => {
         <div className="flex flex-row">
           {products
             .filter(
-              (item) => item.marque === product.marque && item.id !== product.id
+              (item) =>
+                item.category === product.category && item.id !== product.id
             )
             .map((item) => (
               <div>
