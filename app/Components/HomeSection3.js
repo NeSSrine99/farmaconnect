@@ -5,9 +5,9 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const HomeSection3 = () => {
   return (
     <div className="relative">
-      <FaChevronRight className="absolute top-1/2 right-4" color="white" />
+      <FaChevronRight className="absolute top-1/2 right-4 z-10" color="white" />
       <FaChevronLeft
-        className="absolute top-1/2 left-4 ease-in-out hover:duration-300"
+        className="absolute top-1/2 left-4 ease-in-out hover:duration-300 z-10"
         color="white"
       />
       <img
