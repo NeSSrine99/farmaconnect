@@ -68,7 +68,7 @@ const Categories = () => {
           ))}
         </main>
 
-        <aside className="flex items-start min-w-[20px]  max-w-[40px] relative">
+        <aside className="flex items-start min-w-[20px]  max-w-[20px] relative border-l-2 border-textLight ">
           <div className="fixed bottom-6 right-6 z-50">
             <BsFillChatQuoteFill
               size={70}

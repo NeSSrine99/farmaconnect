@@ -7,17 +7,18 @@ import Button from "@/app/components/Button";
 import Favorite from "@/app/components/Favorite";
 import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
 import Card from "@/app/components/Card";
+import ProductSlider from "@/app/components/ProductSlider";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const product = products.find((item) => item.id === parseInt(id));
 
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const marque = [...new Set(products.map((product) => product.marque))];
+  // const [selectedBrand, setSelectedBrand] = useState("");
+  // const marque = [...new Set(products.map((product) => product.marque))];
 
-  const filteredProducts = selectedBrand
-    ? products.filter((product) => product.marque === selectedBrand)
-    : products;
+  // const filteredProducts = selectedBrand
+  //   ? products.filter((product) => product.marque === selectedBrand)
+  //   : products;
 
   if (!product) return <p> nothing</p>;
   return (
@@ -98,33 +99,8 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="mt-8">
-        <h2 className="text-center justify-center text-black text-3xl font-semibold">
-          D'autres ont aussi regardé
-        </h2>
-        <div className="flex flex-row">
-          {products
-            .filter(
-              (item) =>
-                item.category === product.category && item.id !== product.id
-            )
-            .map((item) => (
-              <div>
-                <Card
-                  id={item.id}
-                  marque={item.marque}
-                  nom={item.nom}
-                  prix={item.prix}
-                  discount={item.discount}
-                  image={item.image}
-                  nouveaux={item.nouveaux}
-                  rupture={item.rupture}
-                  reduction={item.reduction}
-                  Description={item.Description}
-                />
-              </div>
-            ))}
-        </div>
+      <div className="mt-8 h-[600px]">
+        <ProductSlider product={product} />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const Button = ({
       "bg-primary border-2 border-primary hover:bg-hoverButtonPrimary text-white",
     secondary: "bg-secondary hover:bg-hoverButtonSecondary text-white",
     tertiary: "border-2 border-inside border-primary bg-white text-primary ",
-    third: "bg-white text-primary bg-opacity-25 backdrop-blur-md",
+    third: " text-primary  backdrop-blur-md",
   };
 
   return (
