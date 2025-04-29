@@ -19,28 +19,28 @@ export default function ProductSlider({ product }) {
     (item) => item.category === product.category && item.id !== product.id
   );
   return (
-    <div className="mt-8 relative">
-      <h2 className="text-black text-[20px] font-bold mb-4">
+    <div className="mt-10 relative h-[1000px] ">
+      <h2 className="text-black text-[20px] font-bold mb-8">
         D'autres ont aussi regardé
       </h2>
 
       {/* أزرار التحكم */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 shadow rounded-full"
+        className="absolute left-0 top-1/3 -translate-y-1/2 z-10 bg-white p-2 shadow rounded-full"
       >
         <BsChevronLeft />
       </button>
       <button
         onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 shadow rounded-full"
+        className="absolute right-0 top-1/3 -translate-y-1/2 z-10 bg-white p-2 shadow rounded-full"
       >
         <BsChevronRight />
       </button>
 
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto space-x-4 scrollbar-hide scroll-smooth  h-full"
+        className="flex overflow-x-auto space-x-4 scrollbar-hide scroll-smooth py-4"
       >
         {filtered.map((item) => (
           <div key={item.id} className="min-w-[250px] flex-shrink-0">

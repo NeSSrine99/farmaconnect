@@ -41,10 +41,10 @@ export default function Card({
           />
           <Link href={`/categories/${id}`}>
             <Button
-              className="self-stretch  absolute  bottom-0 flex items-center  justify-center gap-2 "
+              className="self-stretch  absolute  bottom-0 flex items-center  justify-center gap-1 text-[14px] hover:underline"
               variant="third"
             >
-              <FaRegEye size={24} />
+              <FaRegEye size={20} />
               Voir Plus
             </Button>
           </Link>
@@ -58,7 +58,7 @@ export default function Card({
               {nom}{" "}
             </h2>
           </div>
-          <div className="self-stretch flex flex-wrap justify-between items-center py-2">
+          <div className="self- flex flex-wrap justify-between items-center py-2">
             {/* اليسار */}
             <div className="text-left flex flex-col justify-start items-start gap-1">
               <p className="text-black text-sm font-medium">{nouveaux}</p>
@@ -80,7 +80,7 @@ export default function Card({
           </div>
 
           <div className="flex gap-2 ">
-            <Button className="self-stretch w-full flex items-center  justify-center gap-2">
+            <Button className="self- w-full flex items-center  justify-center gap-2">
               <MdOutlineAddShoppingCart />
               Ajouter
             </Button>
