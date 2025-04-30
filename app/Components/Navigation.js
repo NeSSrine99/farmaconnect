@@ -9,9 +9,11 @@ import { FaUser, FaChevronDown, FaAngleDown, FaSearch } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import DropdownCategories from "./DropdownCategories";
 import Button from "./Button";
+import ShoppingCart from "./ShoppingCart";
 
 export default function Navbar() {
   const [openCategories, setOpenCategories] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <nav className="flex items-center justify-between self-stretch gap-2  px-8 lg:px-10">
@@ -59,10 +61,19 @@ export default function Navbar() {
       {/* Search parte  Desktop*/}
 
       <div className="items-center hidden gap-2 md:flex">
-        <Button className="flex items-center gap-1 text-">
-          {" "}
-          <MdOutlineShoppingCart size={24} /> Panier <FaChevronDown />
-        </Button>
+        <div className="relative">
+          <Button
+            className="flex items-center gap-1"
+            onClick={() => setIsCartOpen(!isCartOpen)} // ✅ استخدم onClick
+          >
+            <MdOutlineShoppingCart size={24} /> Panier <FaChevronDown />
+          </Button>
+          {isCartOpen && (
+            <div className="absolute top-16 right-4 scale-z-100">
+              <ShoppingCart />
+            </div>
+          )}
+        </div>
 
         <Button variant="tertiary" className="flex items-center gap-1 ">
           <FaUser /> Compte
@@ -76,11 +87,9 @@ export default function Navbar() {
       {/* Search parte  Phone*/}
 
       <div className="flex items-center gap-2 md:hidden">
-        <Button>
-          {" "}
-          <MdOutlineShoppingCart />
+        <Button className="flex items-center gap-1">
+          <MdOutlineShoppingCart size={24} /> <FaChevronDown />
         </Button>
-
         <Button
           className="flex items-center gap-2 md:hidden"
           variant="tertiary"

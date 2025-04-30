@@ -5,6 +5,7 @@ const Button = ({
   type = "button",
   variant = "primary", // primary, secondary, danger...
   className = "",
+  onClick,
 }) => {
   const baseStyles = "px-4 py-2 rounded-xl";
 
@@ -20,6 +21,7 @@ const Button = ({
     <button
       type={type}
       className={`${baseStyles} ${variants[variant]}  ${className}`}
+      onClick={onClick}
     >
       {children}
     </button>

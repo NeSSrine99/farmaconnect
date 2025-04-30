@@ -1,5 +1,6 @@
 import CartItems from "./components/CartItems";
 import ChatbotComponent from "./components/Chatboot";
+
 import HomeSection1 from "./components/HomeSection1";
 import HomeSection3 from "./components/HomeSection3";
 import Navbar from "./components/Navigation";
@@ -10,7 +11,7 @@ export default function Home() {
     <div className=" mt-10 mb-10">
       <HomeSection1 />
       <HomeSection3 />
-      <CartItems
+      {/* <CartItems
         product={{
           id: 1,
           marque: "Cetaphil",
@@ -26,7 +27,9 @@ export default function Home() {
             "Gel solaire léger avec aloe vera et vitamine E, protège contre les rayons UV et hydrate intensément.",
           category: "Beauté Soins",
         }}
-      />
+      /> */}
+      <ShoppingCart />
+      {/* <UserForm /> */}
     </div>
   );
 }

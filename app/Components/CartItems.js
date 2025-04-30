@@ -3,11 +3,12 @@ import { products } from "../categories/data";
 import Button from "./Button";
 import { GoTrash } from "react-icons/go";
 
-export default function CartItems({ product }) {
+export default function CartItems({ product, onRemove }) {
   //   const { id } = useParams();
   //   const product = products.find((item) => item.id === parseInt(id));
 
   //   if (!product) return <p> nothing</p>;
+  if (!product) return null;
 
   return (
     <div className="flex items-center gap-4">
@@ -25,7 +26,7 @@ export default function CartItems({ product }) {
           {product.nom}{" "}
         </p>
       </div>
-      <Button variant="third">
+      <Button variant="third" onClick={onRemove}>
         <GoTrash size={24} />
       </Button>
     </div>

@@ -18,6 +18,7 @@ export default function Card({
   reduction = null,
   Description,
   category,
+  onAddToCart,
 }) {
   const router = useRouter();
   return (
@@ -80,7 +81,24 @@ export default function Card({
           </div>
 
           <div className="flex gap-2 ">
-            <Button className="self- w-full flex items-center  justify-center gap-2">
+            <Button
+              className="self- w-full flex items-center  justify-center gap-2"
+              onClick={() =>
+                onAddToCart({
+                  id,
+                  marque,
+                  nom,
+                  prix,
+                  discount,
+                  image,
+                  nouveaux,
+                  rupture,
+                  reduction,
+                  Description,
+                  category,
+                })
+              }
+            >
               <MdOutlineAddShoppingCart />
               Ajouter
             </Button>
