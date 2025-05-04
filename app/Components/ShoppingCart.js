@@ -3,6 +3,9 @@
 import { useCart } from "@/context/CartContext";
 import { MdDelete } from "react-icons/md";
 import Button from "./Button";
+import Link from "next/link";
+import { BsTrash3 } from "react-icons/bs";
+import { SiCcleaner } from "react-icons/si";
 
 export default function ShoppingCart() {
   const {
@@ -15,17 +18,21 @@ export default function ShoppingCart() {
   } = useCart();
 
   return (
-    <div className="p-4 bg-white rounded shadow-md w-[300px] ">
-      <h2 className="text-xl font-bold mb-4">Your Cart</h2>
+    <div className="p-4 bg-white rounded-2xl shadow-defaultCard w-[340px] md:w-[350px] lg:w-[400px]">
+      <h2 className="text-xl font-bold my-4 text-center text-primary">
+        Mon panier
+      </h2>
 
       {cartItems.length === 0 ? (
-        <p className="text-gray-500">Your cart is empty.</p>
+        <div className="p-4 text-gray-500 text-center">
+          Aucun article dans votre panier.
+        </div>
       ) : (
         <ul className="space-y-4">
           {cartItems.map((item) => (
             <li
               key={item.id}
-              className="flex justify-between items-center border-b pb-2"
+              className="flex justify-between items-center border-b  border-textLight pb-2"
             >
               <div className="flex items-center gap-2">
                 <img
@@ -38,40 +45,50 @@ export default function ShoppingCart() {
                     {item.nom}
                   </h3>
                   <p className="text-[12px] text-gray-600">{item.prix} DT</p>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => decreaseQuantity(item.id)}
-                      className="px-2 py-1 bg-gray-200 rounded"
-                    >
-                      -
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button
-                      onClick={() => increaseQuantity(item.id)}
-                      className="px-2 py-1 bg-gray-200 rounded"
-                    >
-                      +
-                    </button>
-                  </div>
+                </div>
+                <div className="mx-2 flex items-center gap-2">
+                  <button
+                    onClick={() => decreaseQuantity(item.id)}
+                    className="px-2  bg-gray-200 rounded"
+                  >
+                    -
+                  </button>
+                  <span className="text-[14px] font-semibold ">
+                    {item.quantity}
+                  </span>
+                  <button
+                    onClick={() => increaseQuantity(item.id)}
+                    className="px-2  bg-gray-200 rounded"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
               <button
                 onClick={() => removeFromCart(item.id)}
                 className="text-red-500 hover:text-red-700"
               >
-                <MdDelete size={20} />
+                <BsTrash3 size={20} />
               </button>
             </li>
           ))}
+          <div className="text-right font-bold">
+            Total: {getTotalPrice()} TND
+          </div>
+          <div className="flex items-center justify-center gap-4">
+            <Link href="checkout">
+              <Button className=" w-full">Checkout</Button>
+            </Link>
+          </div>
+          <Button
+            variant="tertiary"
+            onClick={clearCart}
+            className="absolute bottom-6 "
+          >
+            <SiCcleaner />
+          </Button>
         </ul>
       )}
-
-      <div className="text-right font-bold text-lg">
-        Total: {getTotalPrice()} TND
-      </div>
-      <div>
-        <Button onClick={clearCart}>Supprimer</Button>
-      </div>
     </div>
   );
 }

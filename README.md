@@ -113,3 +113,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
       We added a new function getTotalPrice inside the CartContext to calculate the total cost of all items in the cart.
       To avoid the issue of NaN, we made sure to convert the product price (prix) to a number using parseFloat() before multiplying it by the quantity.
       This function is then used in the cart UI to display the total price dynamically.
+
+## Step 8: Create Cart Page with Checkout Button
+
+      We created a new page at /cart to display the user's shopping cart in detail.
+      It includes the following features:

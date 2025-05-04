@@ -15,6 +15,7 @@ import CartIcon from "./CartShoppingIcon";
 export default function Navbar() {
   const [openCategories, setOpenCategories] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [ShowCart, setShowCart] = useState(false);
 
   return (
     <nav className="flex items-center justify-between self-stretch gap-2  px-8 lg:px-10">
@@ -96,11 +97,6 @@ export default function Navbar() {
           >
             <CartIcon onClick={() => setShowCart(!ShowCart)} />
           </Button>
-          {isCartOpen && (
-            <div className="absolute top-12  right-0 bg-white  z-150">
-              <ShoppingCart />
-            </div>
-          )}
         </div>
         <Button
           className="flex items-center gap-2 md:hidden"
@@ -113,6 +109,11 @@ export default function Navbar() {
           <TiFlash size={24} />
         </Button>
       </div>
+      {isCartOpen && (
+        <div className="absolute top-[145px] right-16 bg-white z-150 sm:hidden">
+          <ShoppingCart />
+        </div>
+      )}
 
       {/* End  Button */}
     </nav>

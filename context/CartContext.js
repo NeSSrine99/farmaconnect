@@ -71,9 +71,11 @@ export const CartProvider = ({ children }) => {
     );
   };
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => {
+    const total = cartItems.reduce((total, item) => {
       return total + parseFloat(item.prix) * item.quantity;
     }, 0);
+
+    return total.toFixed(3); // يُرجع مثلاً "1234.56"
   };
 
   // Make cart data and functions available to all components
