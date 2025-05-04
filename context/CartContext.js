@@ -9,6 +9,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   // State to store cart items
   const [cartItems, setCartItems] = useState([]);
+  // Create a new context to delete all the content of card
   const clearCart = () => {
     setCartItems([]);
     console.log("Cart after clear:", cartItems);
@@ -50,11 +51,37 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     setCartItems(cartItems.filter((item) => item.id !== id));
   };
+  // Increase quantity of a product by ID
+  const increaseQuantity = (id) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  // Decrease quantity of a product by ID
+  const decreaseQuantity = (id) => {
+    setCartItems(
+      cartItems
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter((item) => item.quantity > 0) // Remove if quantity becomes 0
+    );
+  };
 
   // Make cart data and functions available to all components
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseQuantity,
+        decreaseQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>

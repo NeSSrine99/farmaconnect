@@ -100,3 +100,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
       Then, we added a button in the cart UI that calls this function when clicked.
 
       This allows the user to quickly reset the cart with a single action.
+
+## Step 8: Add Quantity Control Buttons in the Cart
+
+      We added two new functions increaseQuantity and decreaseQuantity to the CartContext to allow users to change the quantity of items in their cart.
+
+      Then, we updated the cart UI to show + and - buttons next to each item.
+      This makes it easier for users to manage the quantity of each product directly from the cart view

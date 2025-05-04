@@ -5,7 +5,13 @@ import { MdDelete } from "react-icons/md";
 import Button from "./Button";
 
 export default function ShoppingCart() {
-  const { cartItems, removeFromCart, clearCart } = useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    clearCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCart();
 
   return (
     <div className="p-4 bg-white rounded shadow-md w-[300px] ">
@@ -31,9 +37,21 @@ export default function ShoppingCart() {
                     {item.nom}
                   </h3>
                   <p className="text-[12px] text-gray-600">{item.prix} DT</p>
-                  <p className="text-sm text-gray-500">
-                    Quantity: {item.quantity}
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => decreaseQuantity(item.id)}
+                      className="px-2 py-1 bg-gray-200 rounded"
+                    >
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() => increaseQuantity(item.id)}
+                      className="px-2 py-1 bg-gray-200 rounded"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
               <button
