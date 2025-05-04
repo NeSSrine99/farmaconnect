@@ -82,3 +82,21 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
      If the cart is not empty, a red badge with the item count is shown.
 
      This badge is useful to let users know how many products they have added to their cart.
+
+## Step 6 : Persist Cart Using localStorage
+
+      To keep cart items after refreshing the page, we used `localStorage`.
+
+      On app startup, we check if `localStorage` contains a saved cart.
+      If yes, we load it into the cart state.
+      Whenever the cart is updated, we save the new cart to `localStorage`.
+
+      This helps improve the user experience by keeping cart data between sessions (temporarily, without a backend).
+
+## Step 7: Add "Clear Cart" Button
+
+      We added a new function clearCart inside the CartContext to remove all products from the cart.
+
+      Then, we added a button in the cart UI that calls this function when clicked.
+
+      This allows the user to quickly reset the cart with a single action.

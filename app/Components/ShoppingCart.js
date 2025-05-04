@@ -2,9 +2,10 @@
 "use client";
 import { useCart } from "@/context/CartContext";
 import { MdDelete } from "react-icons/md";
+import Button from "./Button";
 
 export default function ShoppingCart() {
-  const { cartItems, removeFromCart } = useCart();
+  const { cartItems, removeFromCart, clearCart } = useCart();
 
   return (
     <div className="p-4 bg-white rounded shadow-md w-[300px] ">
@@ -45,6 +46,10 @@ export default function ShoppingCart() {
           ))}
         </ul>
       )}
+
+      <div>
+        <Button onClick={clearCart}>Supprimer</Button>
+      </div>
     </div>
   );
 }

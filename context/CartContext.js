@@ -9,6 +9,10 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   // State to store cart items
   const [cartItems, setCartItems] = useState([]);
+  const clearCart = () => {
+    setCartItems([]);
+    console.log("Cart after clear:", cartItems);
+  };
 
   // On first load, check if there's a saved cart in localStorage
   useEffect(() => {
@@ -49,7 +53,9 @@ export const CartProvider = ({ children }) => {
 
   // Make cart data and functions available to all components
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );
