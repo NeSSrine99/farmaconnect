@@ -70,6 +70,11 @@ export const CartProvider = ({ children }) => {
         .filter((item) => item.quantity > 0) // Remove if quantity becomes 0
     );
   };
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => {
+      return total + parseFloat(item.prix) * item.quantity;
+    }, 0);
+  };
 
   // Make cart data and functions available to all components
   return (
@@ -81,6 +86,7 @@ export const CartProvider = ({ children }) => {
         clearCart,
         increaseQuantity,
         decreaseQuantity,
+        getTotalPrice,
       }}
     >
       {children}

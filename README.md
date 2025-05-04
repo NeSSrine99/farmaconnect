@@ -107,3 +107,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
       Then, we updated the cart UI to show + and - buttons next to each item.
       This makes it easier for users to manage the quantity of each product directly from the cart view
+
+## Step 8: Calculating the Total Price in the Cart
+
+      We added a new function getTotalPrice inside the CartContext to calculate the total cost of all items in the cart.
+      To avoid the issue of NaN, we made sure to convert the product price (prix) to a number using parseFloat() before multiplying it by the quantity.
+      This function is then used in the cart UI to display the total price dynamically.

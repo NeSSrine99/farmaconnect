@@ -11,6 +11,7 @@ export default function ShoppingCart() {
     clearCart,
     increaseQuantity,
     decreaseQuantity,
+    getTotalPrice,
   } = useCart();
 
   return (
@@ -65,6 +66,9 @@ export default function ShoppingCart() {
         </ul>
       )}
 
+      <div className="text-right font-bold text-lg">
+        Total: {getTotalPrice()} TND
+      </div>
       <div>
         <Button onClick={clearCart}>Supprimer</Button>
       </div>
