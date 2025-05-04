@@ -58,7 +58,7 @@ export default function Navbar() {
 
       {/* start  Button */}
 
-      {/* Search parte  Desktop*/}
+      {/* botton parte  Desktop*/}
 
       <div className="items-center hidden gap-2 md:flex">
         <div className="relative">
@@ -69,7 +69,7 @@ export default function Navbar() {
             <MdOutlineShoppingCart size={24} /> Panier <FaChevronDown />
           </Button>
           {isCartOpen && (
-            <div className="absolute top-16 right-4 scale-z-100">
+            <div className="absolute top-12  right-0 bg-white  z-150">
               <ShoppingCart />
             </div>
           )}
@@ -84,12 +84,22 @@ export default function Navbar() {
         </Button>
       </div>
 
-      {/* Search parte  Phone*/}
+      {/* botton  parte  Phone*/}
 
       <div className="flex items-center gap-2 md:hidden">
-        <Button className="flex items-center gap-1">
-          <MdOutlineShoppingCart size={24} /> <FaChevronDown />
-        </Button>
+        <div className="relative">
+          <Button
+            className="flex items-center gap-1"
+            onClick={() => setIsCartOpen(!isCartOpen)} // ✅ استخدم onClick
+          >
+            <MdOutlineShoppingCart size={24} /> <FaChevronDown />
+          </Button>
+          {isCartOpen && (
+            <div className="absolute top-12  right-0 bg-white  z-150">
+              <ShoppingCart />
+            </div>
+          )}
+        </div>
         <Button
           className="flex items-center gap-2 md:hidden"
           variant="tertiary"

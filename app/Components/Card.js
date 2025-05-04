@@ -5,6 +5,7 @@ import Favorite from "./Favorite";
 import Button from "./Button";
 import Rating from "./Rating";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 
 export default function Card({
   id,
@@ -20,6 +21,7 @@ export default function Card({
   category,
   onAddToCart,
 }) {
+  const { addToCart } = useCart(); // we access the function to add product to the cart
   const router = useRouter();
   return (
     <>
@@ -84,18 +86,12 @@ export default function Card({
             <Button
               className="self- w-full flex items-center  justify-center gap-2"
               onClick={() =>
-                onAddToCart({
+                addToCart({
                   id,
-                  marque,
                   nom,
                   prix,
-                  discount,
                   image,
-                  nouveaux,
-                  rupture,
-                  reduction,
-                  Description,
-                  category,
+                  quantity: 1, // default quantity to 1
                 })
               }
             >

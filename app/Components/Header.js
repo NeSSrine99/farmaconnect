@@ -56,7 +56,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {menuOpen && (
-        <div className="lg:hidden absolute top-[80px] right-2 p-2 py-4 flex bg-white flex-col items-start gap-2 rounded-b-xl shadow-defaultCard ">
+        <div className="lg:hidden absolute top-[80px] right-2 p-2 py-4 flex bg-white flex-col items-start gap-2 rounded-b-xl shadow-defaultCard z-50 ">
           <Link
             href="/categories"
             className="flex items-center gap-2 hover:underline text-neutral-400 text-lg font-normal "

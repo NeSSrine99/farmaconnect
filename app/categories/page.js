@@ -28,7 +28,7 @@ const Categories = () => {
   });
 
   return (
-    <div className="px-4">
+    <div className="px-4 mb-[100px]">
       <div className="px-8 py-12">
         <a
           href="/categories"
@@ -68,15 +68,13 @@ const Categories = () => {
           ))}
         </main>
 
-        <aside className="flex items-start min-w-[20px]  max-w-[20px] relative border-l-2 border-textLight ">
-          <div className="fixed bottom-6 right-6 z-50">
-            <BsFillChatQuoteFill
-              size={70}
-              color="white"
-              className="rounded-full p-3 bg-[conic-gradient(from_180deg_at_50.00%_50.00%,#4DDEE5_77deg,_#138086_334deg)] shadow-defaultCard"
-            />
-          </div>
-        </aside>
+        <div className="  fixed bottom-1/6 right-1 z-50">
+          <BsFillChatQuoteFill
+            size={70}
+            color="white"
+            className="rounded-full p-3 bg-[conic-gradient(from_180deg_at_50.00%_50.00%,#4DDEE5_77deg,_#138086_334deg)] shadow-defaultCard"
+          />
+        </div>
       </div>
     </div>
   );

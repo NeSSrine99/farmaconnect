@@ -34,3 +34,43 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Steps of create a shoppingCart
+
+## step 1 : Create Cart Context
+
+     We created a context file CartContext.js to manage cart state globally.
+
+     cartItems: an array that holds the current items in the cart.
+
+     addToCart(product): adds a product to the cart. If it already exists, it increases the quantity.
+
+     removeFromCart(productId): removes a product by its ID.
+
+     clearCart(): clears the entire cart.
+
+     The context provider wraps the whole app in app/layout.js to make it accessible everywhere.
+
+## step 2 : Setup Context Provider
+
+     We wrapped our app with <CartProvider> inside app/layout.js to provide access to the cart state and functions in all components.
+
+## step 3 : Connect the "Add to Cart" Button
+
+     In the product Card component, we used the addToCart() function from the context to add products to the cart when the user clicks the “Ajouter” button.
+
+     We passed a product object with id, nom, prix, image, and quantity: 1 as default.
+
+## step 4 : Build the ShoppingCart Component
+
+     We created a ShoppingCart component to display the added products dynamically.
+
+     It shows product name, price, quantity, and image.
+
+     It includes a delete button to remove items from the cart.
+
+     We used the cartItems and removeFromCart functions from the context to control the cart.
+
+## step 5 :
+
+     The cart can be shown/hidden using a button (like from the navbar). You can control visibility with a useState toggle.
