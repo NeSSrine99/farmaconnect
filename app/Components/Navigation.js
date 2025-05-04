@@ -10,6 +10,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import DropdownCategories from "./DropdownCategories";
 import Button from "./Button";
 import ShoppingCart from "./ShoppingCart";
+import CartIcon from "./CartShoppingIcon";
 
 export default function Navbar() {
   const [openCategories, setOpenCategories] = useState(false);
@@ -66,7 +67,8 @@ export default function Navbar() {
             className="flex items-center gap-1"
             onClick={() => setIsCartOpen(!isCartOpen)} // ✅ استخدم onClick
           >
-            <MdOutlineShoppingCart size={24} /> Panier <FaChevronDown />
+            <CartIcon onClick={() => setShowCart(!ShowCart)} />
+            Panier <FaChevronDown />
           </Button>
           {isCartOpen && (
             <div className="absolute top-12  right-0 bg-white  z-150">
@@ -92,7 +94,7 @@ export default function Navbar() {
             className="flex items-center gap-1"
             onClick={() => setIsCartOpen(!isCartOpen)} // ✅ استخدم onClick
           >
-            <MdOutlineShoppingCart size={24} /> <FaChevronDown />
+            <CartIcon onClick={() => setShowCart(!ShowCart)} />
           </Button>
           {isCartOpen && (
             <div className="absolute top-12  right-0 bg-white  z-150">

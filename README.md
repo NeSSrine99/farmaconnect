@@ -71,6 +71,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
      We used the cartItems and removeFromCart functions from the context to control the cart.
 
-## step 5 :
+## step 5 : Display Cart Item Count in Navbar (Cart Badge)
 
-     The cart can be shown/hidden using a button (like from the navbar). You can control visibility with a useState toggle.
+     We created a CartIcon component to display the total number of items in the cart as a badge on the cart icon.
+
+     We used the useCart() hook to access cartItems from context.
+
+     We calculated the total quantity by summing up the quantity of each item.
+
+     If the cart is not empty, a red badge with the item count is shown.
+
+     This badge is useful to let users know how many products they have added to their cart.
