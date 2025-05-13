@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import DropdownSubCategory from "./DropdownSubCategory";
 import { FaAngleDown } from "react-icons/fa";
 import Link from "next/link";
 
-export default function DropdownCategories({
-  className = "absolute bg-white flex flex-col w-[200px] p-4 mt-2 shadow-defaultCard z-56",
-}) {
+const DropdownCategories = forwardRef(function DropdownCategories(
+  {
+    className = "absolute bg-white flex flex-col w-[200px] p-4 mt-2 shadow-defaultCard z-56",
+  },
+  ref
+) {
   const [openSub, setOpenSub] = useState(null);
 
   const categories = [
@@ -23,7 +26,7 @@ export default function DropdownCategories({
   ];
 
   return (
-    <div className={className}>
+    <div ref={ref} className={className}>
       {categories.map((category, index) => (
         <div key={index}>
           <button
@@ -49,4 +52,6 @@ export default function DropdownCategories({
       ))}
     </div>
   );
-}
+});
+
+export default DropdownCategories;

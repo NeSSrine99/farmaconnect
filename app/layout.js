@@ -3,7 +3,10 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navigation";
-import { CartProvider } from "@/context/CartContext";
+
+import { Toaster } from "react-hot-toast";
+import { ClerkProvider } from "@clerk/nextjs";
+import { CartProvider } from "./context/CartContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,15 +21,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
-        <CartProvider>
-          <Header />
-          <Navbar />
-          <main className="mx-4 ">{children}</main>
-          <Footer />
-        </CartProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${poppins.variable} antialiased`}>
+          <CartProvider>
+            <Header />
+            <Navbar />
+            <main className="mx-4 ">
+              {children}
+              <Toaster position="top-right" />
+            </main>
+            <Footer />
+          </CartProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

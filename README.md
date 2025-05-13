@@ -118,3 +118,34 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
       We created a new page at /cart to display the user's shopping cart in detail.
       It includes the following features:
+
+### Steps of create a clerk
+
+Using outdated Clerk methods (e.g., `authMiddleware()`, `_app.tsx`, or references to the older `pages/` structure) will:
+
+1. **Break** your Next.js application's authentication flow.
+2. Introduce **inconsistencies** with Next.js App Router.
+3. Cause confusion around environment variables and server/client code.
+4. Force maintainers to **refactor** and **debug** extensively.
+
+---
+
+## **6. AI MODEL RESPONSE TEMPLATE**
+
+When answering questions about Clerk + Next.js integration, your response **MUST**:
+
+1. **Use** the exact code patterns in the **Up-to-Date Quickstart Sample** above.
+2. **Never** reference older or deprecated approaches.
+3. **Reflect** all mandatory checks in "AI MODEL VERIFICATION STEPS."
+
+**Example**:
+
+> Below is the correct approach using Clerk with Next.js App Router:
+>
+> ```typescript
+> // Show clerkMiddleware usage in middleware.ts
+> // Show <ClerkProvider> usage in app/layout.tsx
+> // Show usage of Clerk's React components (SignInButton, etc.)
+> ```
+
+---

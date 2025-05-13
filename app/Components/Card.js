@@ -5,7 +5,7 @@ import Favorite from "./Favorite";
 import Button from "./Button";
 import Rating from "./Rating";
 import { useRouter } from "next/navigation";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "../context/CartContext";
 
 export default function Card({
   id,

@@ -1,11 +1,11 @@
-// components/ShoppingCart.js
 "use client";
-import { useCart } from "@/context/CartContext";
-import { MdDelete } from "react-icons/md";
+
 import Button from "./Button";
 import Link from "next/link";
 import { BsTrash3 } from "react-icons/bs";
 import { SiCcleaner } from "react-icons/si";
+import { useCart } from "../context/CartContext";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"; // ⬅️ Clerk
 
 export default function ShoppingCart() {
   const {
@@ -32,7 +32,7 @@ export default function ShoppingCart() {
           {cartItems.map((item) => (
             <li
               key={item.id}
-              className="flex justify-between items-center border-b  border-textLight pb-2"
+              className="flex justify-between items-center border-b border-textLight pb-2"
             >
               <div className="flex items-center gap-2">
                 <img
@@ -41,7 +41,7 @@ export default function ShoppingCart() {
                   className="w-12 h-12 object-cover rounded"
                 />
                 <div>
-                  <h3 className="font-semibold text-[14px]  truncate w-[130px]">
+                  <h3 className="font-semibold text-[14px] truncate w-[130px]">
                     {item.nom}
                   </h3>
                   <p className="text-[12px] text-gray-600">{item.prix} DT</p>
@@ -49,7 +49,7 @@ export default function ShoppingCart() {
                 <div className="mx-2 flex items-center gap-2">
                   <button
                     onClick={() => decreaseQuantity(item.id)}
-                    className="px-2  bg-gray-200 rounded"
+                    className="px-2 bg-gray-200 rounded"
                   >
                     -
                   </button>
@@ -58,7 +58,7 @@ export default function ShoppingCart() {
                   </span>
                   <button
                     onClick={() => increaseQuantity(item.id)}
-                    className="px-2  bg-gray-200 rounded"
+                    className="px-2 bg-gray-200 rounded"
                   >
                     +
                   </button>
@@ -72,18 +72,30 @@ export default function ShoppingCart() {
               </button>
             </li>
           ))}
+
           <div className="text-right font-bold">
             Total: {getTotalPrice()} TND
           </div>
+
+          {/* ✅ Checkout أو Sign In حسب الحالة */}
           <div className="flex items-center justify-center gap-4">
-            <Link href="checkout">
-              <Button className=" w-full">Checkout</Button>
-            </Link>
+            <SignedIn>
+              <Link href="/checkout">
+                <Button className="w-full">Checkout</Button>
+              </Link>
+            </SignedIn>
+
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button className=""> Checkout</Button>
+              </SignInButton>
+            </SignedOut>
           </div>
+
           <Button
             variant="tertiary"
             onClick={clearCart}
-            className="absolute bottom-6 "
+            className="absolute bottom-6"
           >
             <SiCcleaner />
           </Button>

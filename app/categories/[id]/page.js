@@ -8,17 +8,24 @@ import Favorite from "@/app/components/Favorite";
 import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
 import Card from "@/app/components/Card";
 import ProductSlider from "@/app/components/ProductSlider";
+import { useCart } from "@/app/context/CartContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const product = products.find((item) => item.id === parseInt(id));
+  const { addToCart } = useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    getTotalPrice,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCart();
 
-  // const [selectedBrand, setSelectedBrand] = useState("");
-  // const marque = [...new Set(products.map((product) => product.marque))];
+  const [addedToCart, setAddedToCart] = useState(false);
 
-  // const filteredProducts = selectedBrand
-  //   ? products.filter((product) => product.marque === selectedBrand)
-  //   : products;
+  const itemInCart = cartItems.find((item) => item.id === product.id);
+  const quantity = itemInCart ? itemInCart.quantity : 0;
 
   if (!product) return <p> nothing</p>;
   return (
@@ -84,17 +91,38 @@ const ProductDetails = () => {
               {product.rupture}
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-4">
-              -
-              <p className="border-2 border-textLight px-4 text-textLight">1</p>
-              +
+          <div className="flex items-center md:gap-10 gap-4 ">
+            <div className="mx-2 flex items-center gap-2 border-2 border-textLight rounded">
+              <button
+                onClick={() => decreaseQuantity(product.id)}
+                className="px-2 py-1 border-r-2 border-textLight "
+              >
+                -
+              </button>
+              <span className=" font-semibold ">{quantity}</span>
+              <button
+                onClick={() => increaseQuantity(product.id)}
+                className="px-2 py-1 border-l-2 border-textLight font-semibold"
+              >
+                +
+              </button>
             </div>
-            <Button variant="primary" className="flex items-center gap-2">
+            <Button
+              variant="primary"
+              className="flex items-center gap-2"
+              onClick={() => {
+                addToCart(product);
+                setAddedToCart(true);
+                setTimeout(() => setAddedToCart(false), 2000);
+              }}
+            >
               <MdOutlineAddShoppingCart />
-              Ajouter
+              {addedToCart ? "Ajouté ✔️" : "Ajouter"}
             </Button>
-            <Favorite />
+
+            <div className="bg-gray-200 p-2 rounded">
+              <Favorite />
+            </div>
           </div>
         </div>
       </div>

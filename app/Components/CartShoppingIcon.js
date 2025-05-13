@@ -1,8 +1,8 @@
 // components/CartIcon.js
 "use client";
 
-import { useCart } from "@/context/CartContext";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { useCart } from "../context/CartContext";
 
 export default function CartIcon({ onClick }) {
   const { cartItems } = useCart();
