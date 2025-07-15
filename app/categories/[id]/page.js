@@ -3,12 +3,11 @@
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import { products } from "../data";
-import Button from "@/app/components/Button";
-import Favorite from "@/app/components/Favorite";
+import Button from "../../components/Button";
+import Favorite from "../../components/Favorite";
 import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
-import Card from "@/app/components/Card";
-import ProductSlider from "@/app/components/ProductSlider";
-import { useCart } from "@/app/context/CartContext";
+import ProductSlider from "../../components/ProductSlider";
+import { useCart } from "../../context/CartContext";
 
 const ProductDetails = () => {
   const { id } = useParams();

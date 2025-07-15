@@ -54,7 +54,7 @@ export default function Navbar() {
           className="flex items-center gap-2 self-stretch justify-start text-primary text-xl leading-normal"
         >
           <RxHamburgerMenu />
-          Catégories
+          <span>Catégories</span>
           <FaAngleDown />
         </button>
         {openCategories && (
@@ -91,7 +91,6 @@ export default function Navbar() {
             onClick={() => setIsCartOpen(!isCartOpen)}
           >
             <CartIcon onClick={() => setShowCart(!ShowCart)} />
-            Panier <FaChevronDown />
           </Button>
           {isCartOpen && (
             <div className="absolute top-12 right-0 bg-white z-150">
@@ -102,14 +101,31 @@ export default function Navbar() {
 
         {/* ✅ حالة تسجيل الدخول */}
         <SignedIn>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton
+            afterSignOutUrl="/"
+            appearance={{
+              elements: {
+                userButtonAvatarBox: {
+                  width: "40px",
+                  height: "40px",
+                },
+                userButtonPopoverCard: {
+                  borderRadius: "12px",
+                  boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+                },
+                userButtonPopoverFooter: {
+                  display: "none", // إخفاء footer إن أحببت
+                },
+              },
+            }}
+          />
         </SignedIn>
 
         {/* ❌ حالة عدم تسجيل الدخول */}
         <SignedOut>
           <SignInButton mode="modal">
             <Button variant="tertiary" className="flex items-center gap-1">
-              <FaUser /> Se connecter
+              <FaUser size={22} />
             </Button>
           </SignInButton>
           <SignUpButton mode="modal">
