@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { MdOutlineAddShoppingCart, MdDiscount } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";

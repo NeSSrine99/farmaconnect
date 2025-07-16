@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Link from "next/link";
 
 const HomeSection3 = () => {
   return (
@@ -34,9 +35,14 @@ const HomeSection3 = () => {
           Du 16 au 30 Juilly
         </p>
       </div>
-      <Button variant="secondary" className="absolute bottom-8 right-4">
-        J'en profite
-      </Button>
+      <Link href="/venteflash">
+        <Button
+          variant="secondary"
+          className="absolute bottom-8 right-4 cursor-pointer"
+        >
+          J'en profite
+        </Button>
+      </Link>
     </div>
   );
 };

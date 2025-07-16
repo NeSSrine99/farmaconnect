@@ -24,7 +24,7 @@ export default function ProductSlider({ product }) {
         D'autres ont aussi regardé
       </h2>
 
-      {/* أزرار التحكم */}
+      {/* control buttons */}
       <button
         onClick={() => scroll("left")}
         className="absolute left-0 top-1/3 -translate-y-1/2 z-10 bg-white p-2 shadow rounded-full"
