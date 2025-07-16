@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useCart } from "../context/CartContext";
 
-export default function OrderConfirmationPage() {
+export default function Confirmation() {
   const { clearCart } = useCart();
 
   useEffect(() => {

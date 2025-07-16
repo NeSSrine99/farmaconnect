@@ -8,6 +8,7 @@ import Favorite from "../../components/Favorite";
 import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
 import ProductSlider from "../../components/ProductSlider";
 import { useCart } from "../../context/CartContext";
+import { FaChevronRight } from "react-icons/fa";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -29,22 +30,38 @@ const ProductDetails = () => {
   if (!product) return <p> nothing</p>;
   return (
     <div className="flex flex-col lg:mx-[100px] mx-[8px] ">
-      <div className="px-8 py-8">
-        <a
-          href="/categories"
-          className="text-black hover:underline font-semibold"
-        >
-          Categories /
-        </a>
-        <span className="text-black hover:underline font-semibold">
-          {" "}
-          {product.category} /{" "}
-        </span>
-        <span className="ml-1 text-textLight">
-          {" "}
-          {product.marque} | {product.nom}{" "}
-        </span>
-      </div>
+      <nav
+        className="px-10 py-20 text-sm text-gray-600"
+        aria-label="Breadcrumb"
+      >
+        <ol className="flex items-center flex-wrap gap-2">
+          <li>
+            <a
+              href="/categories"
+              className="text-violet-700 font-medium hover:underline transition"
+            >
+              Catégories
+            </a>
+          </li>
+
+          <FaChevronRight className="text-gray-400 w-3 h-3" />
+
+          <li>
+            <a
+              href={`/categories/${product.category.toLowerCase()}`}
+              className="text-violet-700 font-medium hover:underline transition"
+            >
+              {product.category}
+            </a>
+          </li>
+
+          <FaChevronRight className="text-gray-400 w-3 h-3" />
+
+          <li className="text-gray-500 font-normal truncate">
+            {product.marque} | {product.nom}
+          </li>
+        </ol>
+      </nav>
 
       <div className="flex flex-wrap  self-stretch gap-10 lg:gap-32 ">
         <div>

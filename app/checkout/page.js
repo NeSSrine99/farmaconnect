@@ -91,7 +91,7 @@ export default function CartPage() {
             <div className="text-lg font-bold text-right mb-4">
               Total: {getTotalPrice()} TND
             </div>
-            <Link href="/app/confirmation/page.js">
+            <Link href="/confirmation">
               <Button className="w-full">Commander</Button>
             </Link>
           </div>
