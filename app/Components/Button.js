@@ -7,7 +7,7 @@ const Button = ({
   className = "", //to make class name variant
   onClick, // i need this function to view cardShopping cart when i click in the button of panier
 }) => {
-  const baseStyles = "px-4 py-2 rounded-xl";
+  const baseStyles = "px-4 py-2 rounded";
 
   const variants = {
     primary:

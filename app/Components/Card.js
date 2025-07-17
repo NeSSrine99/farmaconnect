@@ -12,98 +12,75 @@ import { useCart } from "../context/CartContext";
 export default function Card({
   id,
   marque = "Marque",
-  nom = "Nome de Product",
-  prix = "Prix",
-  discount = "Prix",
+  nom = "Nom du produit",
+  prix = "19.99 TND",
+  discount = "",
   image = "/cardImgs/CetafilEcran.jpeg",
-  nouveaux,
-  rupture,
+  nouveaux = "",
+  rupture = "",
   reduction = null,
-  Description,
-  category,
-  onAddToCart,
 }) {
-  const { addToCart } = useCart(); // we access the function to add product to the cart
+  const { addToCart } = useCart();
   const router = useRouter();
+
   return (
-    <>
-      {/*Start List of cards */}
-      <div className=" outline-2 outline-primary self-stretch relative rounded-2xl rounded-tr-2xl w-full max-w-72 min-w-48   flex flex-col justify-start items-start shadow-defaultCard   transition-all hover:scale-105 ease-in-out bg-white">
-        <div className="relative w-full ">
-          <Favorite className=" absolute top-2 right-4" />
-          {reduction && (
-            <Button
-              variant="secondary"
-              className="absolute top-0 left-0 flex items-center gap-2 rounded-bl-none"
-            >
-              <MdDiscount /> {reduction}%
-            </Button>
-          )}
-          <img
-            src={image}
-            alt="Book 1"
-            className=" self-stretch h-56 rounded-tl-2xl rounded-tr-2xl  w-full"
-          />
-          <Link href={`/categories/${id}`}>
-            <Button
-              className="self-stretch  absolute  bottom-0 flex items-center  justify-center gap-1 text-[14px] hover:underline"
-              variant="third"
-            >
-              <FaRegEye size={20} />
-              Voir Plus
-            </Button>
-          </Link>
-        </div>
-        <div className="px-2 py-2 self-stretch">
-          <div className=" text-left ">
-            <h3 className=" text-neutral-400 text-sm font-semibold">
-              {marque}
-            </h3>
-            <h2 className="self-stretch w-full text-black text-[16px] font-bold truncate ">
-              {nom}{" "}
-            </h2>
-          </div>
-          <div className="self- flex flex-wrap justify-between items-center py-2">
-            {/* اليسار */}
-            <div className="text-left flex flex-col justify-start items-start gap-1">
-              <p className="text-black text-sm font-medium">{nouveaux}</p>
-              <p className="text-neutral-400 text-base font-medium">
-                {rupture}
-              </p>
-            </div>
+    <div className="w-64 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden flex flex-col">
+      {/* Image + Réduction */}
+      <div className="relative">
+        <img src={image} alt={nom} className="w-full h-40 object-cover" />
 
-            {/* اليمين */}
-            <div className="text-right flex flex-col justify-end items-end gap-1">
-              <p className="text-neutral-400 text-sm line-through">
-                {discount}
-              </p>
-              <p className="text-black text-[18px] font-bold">{prix}</p>
-            </div>
+        {reduction && (
+          <div className="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">
+            -{reduction}%
           </div>
-          <div className="py-2">
-            <Rating />
-          </div>
+        )}
 
-          <div className="flex gap-2 ">
-            <Button
-              className="self- w-full flex items-center  justify-center gap-2"
-              onClick={() =>
-                addToCart({
-                  id,
-                  nom,
-                  prix,
-                  image,
-                  quantity: 1, // default quantity to 1
-                })
-              }
-            >
-              <MdOutlineAddShoppingCart />
-              Ajouter
-            </Button>
-          </div>
-        </div>
+        <Favorite className="absolute top-2 right-2" />
+
+        <Link href={`/categories/${id}`}>
+          <Button
+            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm text-sm text-green-700 font-medium px-3 py-1 rounded-md hover:underline"
+            variant="ghost"
+          >
+            <FaRegEye size={14} />
+            Voir Plus
+          </Button>
+        </Link>
       </div>
-      {/*End List of cards */}
-    </>
+
+      {/* Info */}
+      <div className="p-3 flex flex-col flex-1 justify-between">
+        <div className="text-xs text-gray-500 mb-1">{marque}</div>
+        <h2 className="text-sm font-semibold text-gray-800 line-clamp-2 h-10">
+          {nom}
+        </h2>
+
+        {/* Prix et état */}
+        <div className="flex justify-between items-center text-sm mt-2">
+          <div>
+            {discount && (
+              <p className="text-gray-400 line-through">{discount}</p>
+            )}
+            <p className="text-green-700 font-bold">{prix}</p>
+          </div>
+          <Rating />
+        </div>
+
+        {/* Nouveaux / Rupture */}
+        <div className="flex justify-between text-xs text-gray-500 mt-1">
+          <span className="text-green-600">{nouveaux}</span>
+          <span className="text-red-500">{rupture}</span>
+        </div>
+
+        {/* Bouton Ajouter */}
+        <Button
+          onClick={() => addToCart({ id, nom, prix, image, quantity: 1 })}
+          className="mt-3 w-full flex items-center justify-center gap-2 py-2 text-sm"
+        >
+          <MdOutlineAddShoppingCart />
+          Ajouter
+        </Button>
+      </div>
+    </div>
   );
 }

@@ -7,13 +7,6 @@ import Button from "./Button";
 export default function Banner() {
   return (
     <section className="relative overflow-hidden  bg-gradient-to-r from-violet-100 via-white to-sky-100 lg:h-[550px]  lg:py-20 sm:py-10   ">
-      {/* Section Promotions */}
-      <div className="absolute top-10 right-4 transform -translate-x-1/2 bg-white/90 px-6 py-3 rounded-full shadow-lg flex items-center gap-3 backdrop-blur-sm z-20 border border-violet-200">
-        <span className="text-pink-600 font-bold text-lg">🔥 -25% </span>
-        <span className="text-gray-700 font-medium text-sm">
-          sur tous les produits hydratants jusqu'au <strong>31 Juillet</strong>
-        </span>
-      </div>
       {/* background gradient*/}
       <div className="absolute inset-0 opacity-20 bg-[url('/cardImgs/GelNettoyant.jpeg')] bg-no-repeat  bg-cover bg-center" />
 
@@ -52,6 +45,14 @@ export default function Banner() {
 
         {/* Photo */}
         <div className="relative w-full h-64 md:h-96 flex items-center justify-center">
+          {/* Section Promotions */}
+          <div className="absolute  transform -translate-x-1/2 bg-white/90 px-6 py-3 rounded-full shadow-lg flex items-center gap-3 backdrop-blur-sm z-20 border border-violet-200">
+            <span className="text-pink-600 font-bold text-lg">🔥 -25% </span>
+            <span className="text-gray-700 font-medium text-sm">
+              sur tous les produits hydratants jusqu'au{" "}
+              <strong>31 Juillet</strong>
+            </span>
+          </div>
           <div className="relative w-72 h-72 rounded-full bg-white/60 backdrop-blur-md shadow-lg flex items-center justify-center ring-4 ring-violet-100">
             <Image
               src="/cardImgs/CrèmeRicheHydratation.jpeg"

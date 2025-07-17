@@ -7,12 +7,14 @@ export default function NewProductsCarousel() {
   const newProducts = products.filter((product) => product.nouveaux);
 
   return (
-    <section className="py-10 px-6">
-      <h2 className="text-2xl font-bold mb-6 text-sky-800">Nouveautés</h2>
+    <section className="py-[100px] lg:px-[120px] sm:px-[32px] px-4">
+      <h2 className="text-2xl font-bold mb-20 text-sky-800 text-center">
+        Nouveautés
+      </h2>
 
       {newProducts.length > 0 ? (
         <div className="overflow-x-auto">
-          <div className="flex gap-4 snap-x snap-mandatory overflow-x-auto scrollbar-hide pb-4">
+          <div className="flex gap-4 snap-x snap-mandatory overflow-x-auto scrollbar-hide py-4">
             {newProducts.map((product) => (
               <div
                 key={product.id}

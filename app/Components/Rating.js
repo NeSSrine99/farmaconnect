@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { FaRegStar, FaStar } from 'react-icons/fa';
+import { useState } from "react";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 export default function Rating() {
   const [rating, setRating] = useState(0);
@@ -9,7 +9,7 @@ export default function Rating() {
 
   return (
     <div className="flex items-center gap-2">
-      {/* النجوم */}
+      {/* stars*/}
       <div className="flex">
         {[...Array(5)].map((_, index) => {
           const currentRating = index + 1;
@@ -26,14 +26,14 @@ export default function Rating() {
               />
               {isActive ? (
                 <FaStar
-                  size={24}
+                  size={20}
                   className="text-yellow-400 transition-transform hover:scale-110"
                   onMouseEnter={() => setHover(currentRating)}
                   onMouseLeave={() => setHover(0)}
                 />
               ) : (
                 <FaRegStar
-                  size={24}
+                  size={20}
                   className="text-yellow-400 transition-transform hover:scale-110"
                   onMouseEnter={() => setHover(currentRating)}
                   onMouseLeave={() => setHover(0)}

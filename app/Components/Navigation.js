@@ -24,13 +24,12 @@ export default function Navbar() {
   const dropdownRef = useRef(null);
   const router = useRouter();
 
-  // إغلاق Dropdown التصنيفات عند الضغط خارجها
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpenCategories(false);
       }
-    }
+    };
     if (openCategories) {
       document.addEventListener("mousedown", handleClickOutside);
     }
@@ -39,7 +38,6 @@ export default function Navbar() {
     };
   }, [openCategories]);
 
-  // تنفيذ البحث
   const handleSearch = () => {
     const trimmed = searchTerm.trim();
     if (trimmed) {
@@ -48,37 +46,39 @@ export default function Navbar() {
     }
   };
 
-  // تشغيل البحث عند Enter
   const handleKeyDown = (e) => {
     if (e.key === "Enter") handleSearch();
   };
 
   return (
-    <nav className="flex items-center justify-between gap-4 px-6 lg:px-10 py-4 shadow-md bg-white z-50">
-      {/* زر التصنيفات */}
+    <nav className="flex items-center justify-between gap-4 px-4 lg:px-10 py-4 shadow-md bg-white z-50 sticky top-0">
+      {/* Sidebar categories button */}
       <div className="relative">
         <button
           onClick={() => setOpenCategories(!openCategories)}
-          className="flex items-center gap-2 text-primary text-lg font-semibold"
+          className="flex items-center gap-2 text-primary text-base font-semibold hover:text-hoverButtonPrimary transition"
         >
           <RxHamburgerMenu />
           <span>Catégories</span>
-          <FaAngleDown />
+          <FaAngleDown size={14} />
         </button>
+
         {openCategories && (
-          <DropdownCategories
+          <div
             ref={dropdownRef}
-            className="absolute bg-white w-[200px] p-4 mt-2 shadow-lg z-50"
-          />
+            className="absolute mt-2 z-50 bg-white w-[220px] p-4 shadow-lg rounded-lg animate-fade-in"
+          >
+            <DropdownCategories />
+          </div>
         )}
       </div>
 
-      {/* شريط البحث على الحاسوب */}
-      <div className="hidden md:flex items-center border border-gray-300 rounded-lg overflow-hidden lg:w-[500px] w-[300px]">
+      {/* Search bar */}
+      <div className="hidden md:flex items-center border border-gray-300 rounded-lg overflow-hidden w-[300px] lg:w-[500px]">
         <input
           type="text"
           name="search"
-          placeholder="Recherche des Produits..."
+          placeholder="Rechercher des produits..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -86,37 +86,49 @@ export default function Navbar() {
         />
         <button
           onClick={handleSearch}
-          className="bg-gray-400 p-3 flex items-center justify-center"
+          className="bg-gray-400 p-3 transition cursor-pointer"
         >
           <FaSearch className="text-white" />
         </button>
       </div>
 
-      {/* زر البحث للهاتف */}
-      <div className="md:hidden">
+      {/* Mobile search button */}
+      <div className="md:hidden flex items-center">
+        <input
+          type="text"
+          placeholder="Rechercher..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
+          className="px-2 py-1 text-sm border border-gray-300 rounded-l-md"
+        />
         <button
           onClick={handleSearch}
-          className="bg-gray-400 p-2 rounded-md flex items-center"
+          className="bg-gray-600 p-2 rounded-r-md text-white"
         >
-          <FaSearch className="text-white" />
+          <FaSearch />
         </button>
       </div>
 
-      {/* أزرار المستخدم والعربة */}
-      <div className="flex items-center gap-2">
-        {/* العربة */}
+      {/* User and cart section */}
+      <div className="flex items-center gap-3">
+        {/* Shopping cart */}
         <div className="relative">
-          <Button onClick={() => setIsCartOpen(!isCartOpen)}>
-            <CartIcon />
+          <Button
+            variant="ghost"
+            onClick={() => setIsCartOpen(!isCartOpen)}
+            className="relative  text-primary"
+          >
+            <CartIcon className="w-5 h-5 " />
           </Button>
           {isCartOpen && (
-            <div className="absolute top-12 right-0 bg-white z-50 shadow-lg">
+            <div className="absolute top-12 right-0 bg-white z-50 shadow-lg rounded-md animate-fade-in">
               <ShoppingCart />
             </div>
           )}
         </div>
 
-        {/* المستخدم */}
+        {/* User */}
         <SignedIn>
           <UserButton
             afterSignOutUrl="/"
@@ -134,15 +146,16 @@ export default function Navbar() {
             }}
           />
         </SignedIn>
+
         <SignedOut>
           <SignInButton mode="modal">
-            <Button variant="tertiary">
-              <FaUser size={20} />
+            <Button variant="outline" className="p-2">
+              <FaUser size={20} className="text-gray-500" />
             </Button>
           </SignInButton>
           <SignUpButton mode="modal">
             <Button variant="secondary">
-              <TiFlash size={22} />
+              <TiFlash />
             </Button>
           </SignUpButton>
         </SignedOut>
