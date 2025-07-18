@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Button from "../components/Button";
+import Button from "../components/ui/Button";
 import FormInput from "../components/ui/Input";
 
 export default function OrdonnancePage() {

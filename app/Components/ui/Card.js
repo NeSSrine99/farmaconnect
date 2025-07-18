@@ -7,7 +7,7 @@ import Favorite from "./Favorite";
 import Button from "./Button";
 import Rating from "./Rating";
 import { useRouter } from "next/navigation";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../../context/CartContext";
 
 export default function Card({
   id,
@@ -19,6 +19,8 @@ export default function Card({
   nouveaux = "",
   rupture = "",
   reduction = null,
+  rating = 0,
+  reviews = 0,
 }) {
   const { addToCart } = useCart();
   const router = useRouter();
@@ -34,7 +36,7 @@ export default function Card({
         />
 
         {reduction && (
-          <div className="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">
+          <div className="absolute top-2 left-2 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">
             -{reduction}%
           </div>
         )}
@@ -67,7 +69,10 @@ export default function Card({
             )}
             <p className="text-green-700 font-bold">{prix}</p>
           </div>
-          <Rating />
+          <div className="flex items-start  text-gray-500">
+            <Rating value={rating} />{" "}
+            <p className="text-gray-500">({reviews})</p>
+          </div>
         </div>
 
         {/* Nouveaux / Rupture */}

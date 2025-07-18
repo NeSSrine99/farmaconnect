@@ -1,5 +1,5 @@
 import React from "react";
-import Rating from "./Rating";
+import Rating from "./ui/Rating";
 import { GrMapLocation } from "react-icons/gr";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineHealthAndSafety } from "react-icons/md";

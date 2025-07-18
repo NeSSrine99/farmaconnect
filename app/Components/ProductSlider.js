@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { products } from "../categories/data";
-import Card from "./Card";
+import Card from "./ui/Card";
 
 export default function ProductSlider({ product }) {
   const scrollRef = useRef(null);

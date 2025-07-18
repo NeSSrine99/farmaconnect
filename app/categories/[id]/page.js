@@ -3,8 +3,8 @@
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import { products } from "../data";
-import Button from "../../components/Button";
-import Favorite from "../../components/Favorite";
+import Button from "../../components/ui/Button";
+import Favorite from "../../components/ui/Favorite";
 import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
 import ProductSlider from "../../components/ProductSlider";
 import { useCart } from "../../context/CartContext";

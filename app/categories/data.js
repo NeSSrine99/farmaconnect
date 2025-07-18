@@ -15,6 +15,8 @@ export const products = [
     Description:
       "Gel solaire léger avec aloe vera et vitamine E, protège contre les rayons UV et hydrate intensément.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ export const products = [
     Description:
       "Nettoyant doux pour le visage et le corps, adapté aux peaux sensibles.",
     category: "Beauté Soins",
+    rating: 4.0,
   },
 
   // Vichy
@@ -46,6 +49,8 @@ export const products = [
       "Booster quotidien avec acide hyaluronique pour une peau plus forte et hydratée.",
 
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 4,

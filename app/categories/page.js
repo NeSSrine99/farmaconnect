@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/ui/Card";
 import { products } from "../categories/data";
 import { BsFillChatQuoteFill } from "react-icons/bs";
 import { useSearchParams } from "next/navigation";
@@ -89,12 +89,12 @@ const Categories = () => {
           </select> */}
         </nav>
 
-        <main className="grid lg:grid-cols-5  md:grid-cols-2 grid-cols-1 gap-4 p-4 min-w-[300px] pt-8">
-          {filteredProducts.map((product) => (
-            <div key={product.id}>
-              <Card {...product} />
-            </div>
-          ))}
+        <main className="flex flex-col items-center pt-8 px-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-full max-w-7xl">
+            {filteredProducts.map((product) => (
+              <Card key={product.id} {...product} />
+            ))}
+          </div>
         </main>
 
         <div className="  fixed bottom-1/6 right-1 z-50">

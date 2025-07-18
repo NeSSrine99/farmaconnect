@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { FaUser, FaAngleDown, FaSearch } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TiFlash } from "react-icons/ti";
-import CartIcon from "./CartShoppingIcon";
-import ShoppingCart from "./ShoppingCart";
+import CartIcon from "./ui/CartShoppingIcon";
+import ShoppingCart from "../components/ShoppingCart";
 import DropdownCategories from "./DropdownCategories";
-import Button from "./Button";
+import Button from "./ui/Button";
 import {
   SignedIn,
   SignedOut,
@@ -155,8 +155,9 @@ export default function Navbar() {
             </Button>
           </SignInButton>
         </SignedOut>
-        <Link href="/venteflash">
-          <Button variant="secondary " className="cursor-pointer">
+        <Link href="/venteflash" className="cursor-pointer">
+          {/* Vente Flash Button */}
+          <Button variant="secondary ">
             <TiFlash />
           </Button>
         </Link>

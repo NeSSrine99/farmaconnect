@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "./Button";
+import Button from "./ui/Button";
 import Link from "next/link";
 import { BsTrash3 } from "react-icons/bs";
 import { SiCcleaner } from "react-icons/si";

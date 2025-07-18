@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "../components/Button";
+import Button from "../components/ui/Button";
 import { BsTrash3 } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import Link from "next/link";

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 export default function Banner() {
   return (
