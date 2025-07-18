@@ -16,6 +16,7 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function Navbar() {
   const [openCategories, setOpenCategories] = useState(false);
@@ -154,9 +155,11 @@ export default function Navbar() {
             </Button>
           </SignInButton>
         </SignedOut>
-        <Button variant="secondary">
-          <TiFlash />
-        </Button>
+        <Link href="/venteflash">
+          <Button variant="secondary " className="cursor-pointer">
+            <TiFlash />
+          </Button>
+        </Link>
       </div>
     </nav>
   );
