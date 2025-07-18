@@ -29,7 +29,7 @@ export default function OrdonnancePage() {
   };
 
   return (
-    <div className="py-[100px] px-4 sm:px-[32px] lg:px-[120px] bg-gray-50">
+    <div className="py-[100px] px-4 sm:px-[32px] lg:px-[120px] bg-gradient-to-br from-white via-blue-50 to-violet-100">
       <h1 className="text-2xl font-bold mb-20 text-primary">
         Demande de médicament sur ordonnance
       </h1>

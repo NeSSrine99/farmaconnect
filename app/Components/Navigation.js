@@ -153,12 +153,10 @@ export default function Navbar() {
               <FaUser size={20} className="text-gray-500" />
             </Button>
           </SignInButton>
-          <SignUpButton mode="modal">
-            <Button variant="secondary">
-              <TiFlash />
-            </Button>
-          </SignUpButton>
         </SignedOut>
+        <Button variant="secondary">
+          <TiFlash />
+        </Button>
       </div>
     </nav>
   );
