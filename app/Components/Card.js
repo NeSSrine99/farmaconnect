@@ -26,8 +26,12 @@ export default function Card({
   return (
     <div className="w-64 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden flex flex-col">
       {/* Image + Réduction */}
-      <div className="relative">
-        <img src={image} alt={nom} className="w-full h-40 object-cover" />
+      <div className="relative h-40 bg-white flex items-center justify-center">
+        <img
+          src={image}
+          alt={nom}
+          className="max-h-full max-w-full object-contain"
+        />
 
         {reduction && (
           <div className="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">
@@ -39,7 +43,7 @@ export default function Card({
 
         <Link href={`/categories/${id}`}>
           <Button
-            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm text-sm text-green-700 font-medium px-3 py-1 rounded-md hover:underline"
+            className="absolute flex items-center gap-2  bottom-2 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm text-sm text-green-700 font-medium px-3 py-1 rounded-md hover:underline"
             variant="ghost"
           >
             <FaRegEye size={14} />

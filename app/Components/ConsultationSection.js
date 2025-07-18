@@ -9,66 +9,65 @@ export default function SanteConseilsSection() {
   return (
     <section className="bg-white py-[100px] lg:px-[120px] sm:px-[32px] px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl text-center md:text-3xl font-bold text-gray-800 mb-20 ">
+        <h2 className="text-2xl text-center md:text-3xl font-bold text-gray-800 mb-16">
           Nos conseils santé
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-          {/* Carte 1 */}
-          <div className="bg-white rounded-lg shadow-md p-4 flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* ✅ Carte 1 */}
+          <div className="bg-white rounded-xl shadow-lg p-5 flex flex-col justify-between">
             <Image
               src="/cardImgs/CeraveHydratant.jpeg"
               alt="Advil"
               width={300}
-              height={150}
-              className="object-contain rounded mb-4"
+              height={180}
+              className="object-contain rounded-lg mb-4 mx-auto"
             />
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              Comment choisir son Advil - Nos conseils
+            <h3 className="text-base font-semibold text-gray-800 mb-4">
+              Comment choisir son Advil ? Nos conseils simples
             </h3>
-            <button className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 mt-auto w-fit">
-              Lire le dossier
-            </button>
+            <Button className="mt-auto self-start">Lire le dossier</Button>
           </div>
 
-          {/* Carte 2 */}
-          <div className="relative bg-white rounded-lg shadow-md overflow-hidden">
+          {/* ✅ Carte 2 : Info ordonnances */}
+          <div className="relative bg-gray-100 rounded-xl overflow-hidden shadow-lg flex flex-col justify-end">
             <Image
               src="/contact.jpeg"
               alt="Pharmacienne"
               layout="fill"
               objectFit="cover"
-              className="opacity-30"
+              className="opacity-20"
             />
             <div className="relative z-10 p-6">
-              <h3 className="text-xl font-semibold text-orange-600 mb-4">
-                Conseils
+              <h3 className="text-lg font-bold text-primary mb-4">
+                Médicaments sur ordonnance
               </h3>
-              <ul className="list-disc list-inside text-gray-800 text-sm space-y-1">
-                <li>Nous acceptons les ordonnances médicales</li>
-                <li>Commandez vos médicaments manquants en toute sécurité –</li>
-                <li>Traitement confidentiel & sécurisé</li>
-                <li>Réponse dans un délai de 60 à 90 minutes</li>
+              <ul className="list-disc list-inside text-gray-800 text-sm space-y-2">
+                <li>Ordonnances médicales acceptées</li>
+                <li>Commandez les médicaments manquants</li>
+                <li>Confidentialité & sécurité assurées</li>
+                <li>Réponse sous 60 à 90 minutes</li>
               </ul>
               <Link href="/ordonnance">
-                <Button className="mt-6 cursor-pointer bg-orange-500">
+                <Button className="mt-6 bg-green-600 hover:bg-green-700">
                   Demander un médicament
                 </Button>
               </Link>
             </div>
           </div>
 
-          {/* Carte 3 */}
-          <div className="bg-white rounded-lg shadow-md flex flex-col h-full">
-            <div className="p-6 flex-1">
+          {/* ✅ Carte 3 : Contact */}
+          <div className="bg-white rounded-xl shadow-lg flex flex-col h-full justify-between">
+            <div className="p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Besoin d'un conseil personnalisé ?
               </h3>
-              <p className="text-sm text-gray-600">
-                Nos pharmaciens sont là pour répondre à vos questions.
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Nos pharmaciens sont à votre écoute pour toute question santé ou
+                médicament.
               </p>
             </div>
-            <div className="bg-orange-300 p-6 rounded-b-lg space-y-3 text-white">
+            <div className="bg-green-600 p-6 rounded-b-xl space-y-3 text-white">
               <button className="flex items-center gap-2 font-medium hover:underline">
                 <FaPhoneAlt /> Faites-vous rappeler
               </button>
