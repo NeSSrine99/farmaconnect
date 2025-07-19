@@ -6,126 +6,125 @@ import { products } from "../data";
 import Button from "../../components/ui/Button";
 import Favorite from "../../components/ui/Favorite";
 import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
-import ProductSlider from "../../components/ProductSlider";
+import ProductSlider from "../components/ProductSlider";
 import { useCart } from "../../context/CartContext";
 import { FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const product = products.find((item) => item.id === parseInt(id));
-  const { addToCart } = useCart();
   const {
     cartItems,
+    addToCart,
     removeFromCart,
-    getTotalPrice,
     increaseQuantity,
     decreaseQuantity,
   } = useCart();
 
   const [addedToCart, setAddedToCart] = useState(false);
-
-  const itemInCart = cartItems.find((item) => item.id === product.id);
+  const itemInCart = cartItems.find((item) => item.id === product?.id);
   const quantity = itemInCart ? itemInCart.quantity : 0;
 
-  if (!product) return <p> nothing</p>;
+  if (!product) return <p className="text-center py-10">Produit non trouvé</p>;
+
   return (
-    <div className="flex flex-col lg:mx-[100px] mx-[8px] ">
+    <div className="flex flex-col lg:mx-[100px] mx-[8px] lg:px-[120px] sm:px-[35px] px-4 ">
+      {/* Breadcrumb */}
       <nav
-        className="px-10 py-20 text-sm text-gray-600"
+        className="flex flex-col items-center   py-20 text-sm text-gray-600"
         aria-label="Breadcrumb"
       >
         <ol className="flex items-center flex-wrap gap-2">
           <li>
             <a
               href="/categories"
-              className="text-violet-700 font-medium hover:underline transition"
+              className="text-primary font-medium hover:underline"
             >
               Catégories
             </a>
           </li>
-
           <FaChevronRight className="text-gray-400 w-3 h-3" />
-
           <li>
             <a
               href={`/categories/${product.category.toLowerCase()}`}
-              className="text-violet-700 font-medium hover:underline transition"
+              className="text-primary font-medium hover:underline"
             >
               {product.category}
             </a>
           </li>
-
           <FaChevronRight className="text-gray-400 w-3 h-3" />
-
           <li className="text-gray-500 font-normal truncate">
             {product.marque} | {product.nom}
           </li>
         </ol>
       </nav>
 
-      <div className="flex flex-wrap  self-stretch gap-10 lg:gap-32 ">
-        <div>
-          <div className="absolute items-center">
-            <Button
-              variant="secondary"
-              className="flex items-center gap-2 rounded-bl-none"
-            >
-              <MdDiscount />
+      {/* Product Content */}
+      <div className="flex flex-wrap gap-10 lg:gap-20 items-start">
+        {/* Image & Discount */}
+        <div className="relative">
+          {product.reduction && (
+            <div className="absolute top-4 left-4 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+              <MdDiscount className="inline-block mr-1" />
               {product.reduction}%
-            </Button>
-          </div>
-          <img
+            </div>
+          )}
+          <Image
             src={product.image}
-            alt="Book 1"
-            className="self-stretch  rounded-2xl shadow-defaultCard md:max-w-[400px]  min-w-[200px] "
+            alt={product.nom}
+            className="rounded-2xl shadow-md w-full max-w-[400px] object-cover"
+            width={400}
+            height={400}
           />
         </div>
-        <div className="py-4 flex flex-col gap-4">
+
+        {/* Product Details */}
+        <div className="flex-1 flex flex-col gap-4 py-4">
           <div>
-            <p className=" text-neutral-400 text-sm font-semibold">
-              {" "}
-              {product.marque}{" "}
+            <p className="text-neutral-400 text-sm font-semibold">
+              {product.marque}
             </p>
-            <h1 className="self-stretch  text-black text-[16px] font-bold ">
-              {product.nom}{" "}
-            </h1>
+            <h1 className="text-xl font-bold text-black">{product.nom}</h1>
           </div>
-          <div>
-            <p className="max-w-[270px] lg:max-w-[400px]  text-left text-[14px] ">
-              {product.Description}
-            </p>
-          </div>
-          <div className="">
+
+          <p className="text-sm leading-relaxed text-gray-700 max-w-xl">
+            {product.Description}
+          </p>
+
+          <div className="space-y-1">
             <p className="text-neutral-400 text-sm line-through">
-              {product.discount}{" "}
+              {product.discount}
             </p>
-            <p className="text-black text-[18px] font-bold"> {product.prix} </p>
+            <p className="text-black text-lg font-bold">{product.prix}</p>
           </div>
-          <div>
-            <p className="text-black text-sm font-medium">{product.nouveaux}</p>
-            <p className="text-neutral-400 text-base font-medium">
-              {product.rupture}
-            </p>
+
+          <div className="text-sm">
+            <p className="font-medium text-green-600">{product.nouveaux}</p>
+            <p className="text-neutral-500">{product.rupture}</p>
           </div>
-          <div className="flex items-center md:gap-10 gap-4 ">
-            <div className="mx-2 flex items-center gap-2 border-2 border-textLight rounded">
+
+          {/* Quantity & Buttons */}
+          <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
               <button
                 onClick={() => decreaseQuantity(product.id)}
-                className="px-2 py-1 border-r-2 border-textLight "
+                className="px-3 py-1 bg-gray-100 hover:bg-gray-200"
               >
                 -
               </button>
-              <span className=" font-semibold ">{quantity}</span>
+              <span className="px-4 font-semibold">{quantity}</span>
               <button
                 onClick={() => increaseQuantity(product.id)}
-                className="px-2 py-1 border-l-2 border-textLight font-semibold"
+                className="px-3 py-1 bg-gray-100 hover:bg-gray-200"
               >
                 +
               </button>
             </div>
+
             <Button
               variant="primary"
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 px-4"
               onClick={() => {
                 addToCart(product);
                 setAddedToCart(true);
@@ -136,14 +135,15 @@ const ProductDetails = () => {
               {addedToCart ? "Ajouté ✔️" : "Ajouter"}
             </Button>
 
-            <div className="bg-gray-200 p-2 rounded">
+            <div className="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">
               <Favorite />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 h-[600px]">
+      {/* Slider */}
+      <div className="mt-12">
         <ProductSlider product={product} />
       </div>
     </div>

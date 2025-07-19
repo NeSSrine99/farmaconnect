@@ -32,6 +32,7 @@ export const products = [
       "Nettoyant doux pour le visage et le corps, adapté aux peaux sensibles.",
     category: "Beauté Soins",
     rating: 4.0,
+    reviews: 80,
   },
 
   // Vichy
@@ -50,7 +51,7 @@ export const products = [
 
     category: "Beauté Soins",
     rating: 4.5,
-    reviews: 120,
+    reviews: 65,
   },
   {
     id: 4,
@@ -63,6 +64,8 @@ export const products = [
     rupture: "En stock",
     Description: "Soin correcteur pour peaux grasses à imperfections.",
     category: "Beauté Soins",
+    rating: 4.0,
+    reviews: 50,
   },
 
   // La Roche-Posay
@@ -79,6 +82,8 @@ export const products = [
     Description:
       "Correcteur anti-imperfections qui réduit les marques et affine les pores.",
     category: "Beauté Soins",
+    rating: 4.7,
+    reviews: 90,
   },
   {
     id: 6,
@@ -93,6 +98,8 @@ export const products = [
     Description:
       "Crème solaire ultra-légère pour peaux sensibles, très haute protection UV.",
     category: "Beauté Soins",
+    rating: 4.8,
+    reviews: 75,
   },
 
   // Bioderma
@@ -109,6 +116,8 @@ export const products = [
     reduction: 25,
     Description: "Eau micellaire démaquillante pour peaux sensibles.",
     category: "Beauté Soins",
+    rating: 4.9,
+    reviews: 30,
   },
   {
     id: 8,
@@ -123,6 +132,8 @@ export const products = [
     Description:
       "Crème ultra-nourrissante pour peaux très sèches ou atopiques.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 40,
   },
 
   // Avene
@@ -138,6 +149,8 @@ export const products = [
     rupture: "En stock",
     Description: "Spray d'eau thermale apaisante et anti-irritante.",
     category: "Beauté Soins",
+    rating: 3.5,
+    reviews: 60,
   },
   {
     id: 10,
@@ -152,6 +165,8 @@ export const products = [
     Description:
       "Gel-crème hydratant 3-en-1 pour peaux sensibles déshydratées.",
     category: "Beauté Soins",
+    rating: 4.2,
+    reviews: 55,
   },
 
   // Mustela
@@ -167,6 +182,8 @@ export const products = [
     rupture: "En stock",
     Description: "Gel nettoyant doux pour bébé et enfant.",
     category: "Beauté Soins",
+    rating: 4.3,
+    reviews: 45,
   },
   {
     id: 12,
@@ -181,6 +198,8 @@ export const products = [
     Description:
       "Crème hydratante quotidienne pour la peau délicate des bébés.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 40,
   },
 
   //  Eucerin
@@ -208,6 +227,8 @@ export const products = [
     rupture: "En stock",
     Description: "Huile de douche protectrice pour peaux sensibles.",
     category: "Beauté Soins",
+    rating: 4.4,
+    reviews: 50,
   },
 
   //  Nuxe
@@ -223,6 +244,8 @@ export const products = [
     rupture: "En stock",
     Description: "Huile sèche multifonctions visage, corps et cheveux.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 80,
   },
   {
     id: 16,
@@ -236,6 +259,8 @@ export const products = [
     rupture: "En stock",
     Description: "Crème hydratante 48h pour peaux normales à mixtes.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 60,
   },
 
   // Neutrogena
@@ -250,6 +275,8 @@ export const products = [
     rupture: "En stock",
     Description: "Gel hydratant rafraîchissant avec acide hyaluronique.",
     category: "Beauté Soins",
+    rating: 4.3,
+    reviews: 50,
   },
   {
     id: 18,
@@ -264,6 +291,8 @@ export const products = [
     Description:
       "Nettoyant quotidien éliminant les impuretés et l'excès de sébum.",
     category: "Beauté Soins",
+    rating: 4.0,
+    reviews: 50,
   },
 
   //  The Ordinary
@@ -279,6 +308,8 @@ export const products = [
     rupture: "En stock",
     Description: "Sérum anti-imperfections et contrôle du sébum.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 100,
   },
   {
     id: 20,
@@ -292,6 +323,8 @@ export const products = [
     rupture: "En stock",
     Description: "Sérum hydratant intense pour toutes les peaux.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 100,
   },
 
   //  CeraVe
@@ -308,6 +341,8 @@ export const products = [
     Description:
       "Crème hydratante riche en céramides pour restaurer la barrière cutanée.",
     category: "Beauté Soins",
+    rating: 4.5,
+    reviews: 100,
   },
   {
     id: 22,
@@ -321,6 +356,8 @@ export const products = [
     rupture: "En stock",
     Description: "Gel moussant nettoyant pour peaux normales à grasses.",
     category: "Beauté SoinsSoin",
+    rating: 4.2,
+    reviews: 60,
   },
 
   // Medicamment
@@ -338,6 +375,8 @@ export const products = [
     Description:
       "Analgésique et antipyrétique pour soulager douleurs et fièvre.",
     category: "Médicaments",
+    rating: 4.2,
+    reviews: 60,
   },
   {
     id: 24,
@@ -352,6 +391,8 @@ export const products = [
     Description:
       "Gel anti-inflammatoire pour douleurs musculaires et articulaires.",
     category: "Médicaments",
+    rating: 4.5,
+    reviews: 80,
   },
   {
     id: 25,
@@ -365,6 +406,8 @@ export const products = [
     rupture: "En stock",
     Description: "Traitement des douleurs modérées et fièvre légère.",
     category: "Médicaments",
+    rating: 4.0,
+    reviews: 50,
   },
   {
     id: 26,
@@ -379,6 +422,8 @@ export const products = [
     Description:
       "Soulagement des douleurs et inflammations légères à modérées.",
     category: "Médicaments",
+    rating: 4.3,
+    reviews: 50,
   },
   {
     id: 27,

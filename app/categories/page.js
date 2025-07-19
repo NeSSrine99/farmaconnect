@@ -4,7 +4,7 @@ import Card from "../components/ui/Card";
 import { products } from "../categories/data";
 import { BsFillChatQuoteFill } from "react-icons/bs";
 import { useSearchParams } from "next/navigation";
-import DropdownCategories from "../components/DropdownCategories";
+import CategoryFilter from "./components/CategoryFilter";
 import { FaChevronRight, FaHome } from "react-icons/fa";
 
 //@Param
@@ -29,9 +29,9 @@ const Categories = () => {
   });
 
   return (
-    <div className="px-4 mb-[100px]">
+    <div className="flex flex-col items-center   ">
       <nav
-        className="px-10 py-20 text-sm text-gray-600"
+        className="flex items-center justify-center py-20"
         aria-label="breadcrumb"
       >
         <ol className="flex items-center flex-wrap gap-2">
@@ -42,7 +42,6 @@ const Categories = () => {
               className="text-primary hover:text-hoverButtonPrimary transition flex items-start justify-center gap-1 font-medium"
             >
               <FaHome className="w-4 h-4" />
-              Accueil
             </a>
           </li>
 
@@ -65,32 +64,16 @@ const Categories = () => {
             <span className="text-gray-700 font-medium">{category}</span>
           </li>
 
-          <FaChevronRight className="text-gray-400 w-3 h-3" />
-
           {/* Marque & nom */}
           {/* <li className="text-gray-500 font-normal truncate"></li> */}
         </ol>
       </nav>
       <div className="flex gap-4">
-        <nav className="nav-hidden  border-r-2 border-textLight px-2  ">
-          <DropdownCategories className=" max-w-[120px] " />
-          {/* Dropdown الفلترة */}
-          {/* <select
-            value={selectedBrand}
-            onChange={(e) => setSelectedBrand(e.target.value)}
-            className="border p-2 rounded"
-          >
-            <option value="">All Brands</option>
-            {marque.map((brand) => (
-              <option key={brand} value={brand}>
-                {brand}
-              </option>
-            ))}
-          </select> */}
-        </nav>
-
-        <main className="flex flex-col items-center pt-8 px-4">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-full max-w-7xl">
+        <main className="flex flex-col items-center py-10 gap-4">
+          <div className="">
+            <CategoryFilter />
+          </div>
+          <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 w-full max-w-7xl">
             {filteredProducts.map((product) => (
               <Card key={product.id} {...product} />
             ))}

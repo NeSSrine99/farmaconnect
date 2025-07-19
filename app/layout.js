@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
           <CartProvider>
             <Header />
             <Navbar />
-            <main className="mx-4">
+            <main className="">
               {children}
               <Toaster position="top-right" />
             </main>
