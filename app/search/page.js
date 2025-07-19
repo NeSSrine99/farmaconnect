@@ -28,7 +28,7 @@ export default function SearchPage() {
 
         {filteredProducts.length > 0 ? (
           <div className="mt-20 flex flex-col items-center  gap-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6 gap-4">
               {filteredProducts.map((product) => (
                 <Card key={product.id} {...product} />
               ))}

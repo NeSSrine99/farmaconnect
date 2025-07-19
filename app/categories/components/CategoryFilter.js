@@ -29,7 +29,6 @@ const categories = [
 export default function CategoryFilter() {
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get("category");
-
   const [activeCategory, setActiveCategory] = useState(currentCategory);
 
   useEffect(() => {
@@ -37,8 +36,14 @@ export default function CategoryFilter() {
   }, [currentCategory]);
 
   return (
-    <div className="w-full overflow-x-auto scrollbar-hide py-5">
-      <div className="flex items-center gap-4 py-4 px-2">
+    <div className="w-full overflow-x-auto scrollbar-hide px-4 sm:px-6 py-6">
+      <div
+        className="flex items-center justify-center gap-4 py-3 min-w-max"
+        style={{
+          scrollSnapType: "x mandatory",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
         {categories.map(({ name, icon }) => {
           const isActive = activeCategory === name;
 
@@ -46,21 +51,18 @@ export default function CategoryFilter() {
             <Link
               key={name}
               href={`/products?category=${encodeURIComponent(name)}`}
-              className={`relative group w-12 h-12 flex items-center justify-center rounded-full border transition-all duration-300 ease-in-out text-lg z-10
+              className={`relative group flex-shrink-0 w-14 h-14 sm:w-14 sm:h-14 flex items-center justify-center rounded-full border transition-all duration-300 ease-in-out text-lg z-10
                 ${
                   isActive
                     ? "bg-secondary text-white border-secondary shadow-lg scale-110"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 hover:scale-105"
                 }`}
+              style={{ scrollSnapAlign: "start" }}
             >
               {icon}
-
-              {/* Tooltip ظاهر فوق الأيقونة عند الهوفر */}
               <span className="absolute z-20 bottom-full mb-2 px-2 py-1 rounded-md bg-black text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 {name}
               </span>
-
-              {/* تأثير نبض خفيف عند التفعيل */}
               {isActive && (
                 <span className="absolute inset-0 bg-secondary opacity-20 rounded-full animate-pulse z-0"></span>
               )}
