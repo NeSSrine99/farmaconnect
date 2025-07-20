@@ -1,7 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   FaCapsules,
@@ -31,9 +30,15 @@ export default function CategoryFilter() {
   const currentCategory = searchParams.get("category");
   const [activeCategory, setActiveCategory] = useState(currentCategory);
 
+  const router = useRouter();
+
   useEffect(() => {
     setActiveCategory(currentCategory);
   }, [currentCategory]);
+
+  const handleCategoryClick = (name) => {
+    router.push(`/categories?category=${encodeURIComponent(name)}`);
+  };
 
   return (
     <div className="w-full overflow-x-auto scrollbar-hide px-4 sm:px-6 py-6">
@@ -48,10 +53,10 @@ export default function CategoryFilter() {
           const isActive = activeCategory === name;
 
           return (
-            <Link
+            <button
               key={name}
-              href={`/products?category=${encodeURIComponent(name)}`}
-              className={`relative group flex-shrink-0 w-14 h-14 sm:w-14 sm:h-14 flex items-center justify-center rounded-full border transition-all duration-300 ease-in-out text-lg z-10
+              onClick={() => handleCategoryClick(name)}
+              className={`relative group flex-shrink-0 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center rounded-full border transition-all duration-300 ease-in-out text-lg z-10
                 ${
                   isActive
                     ? "bg-secondary text-white border-secondary shadow-lg scale-110"
@@ -66,7 +71,7 @@ export default function CategoryFilter() {
               {isActive && (
                 <span className="absolute inset-0 bg-secondary opacity-20 rounded-full animate-pulse z-0"></span>
               )}
-            </Link>
+            </button>
           );
         })}
       </div>
