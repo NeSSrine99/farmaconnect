@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white shadow-md sticky top-0 z-50 px-4 lg:px-10 py-4">
+      <nav className="bg-white/25 shadow-md sticky top-0 z-50 px-4 lg:px-10 py-4">
         <div className="flex items-center justify-between gap-4">
           {/* ----------------- زر الفئات ------------------ */}
           <div className="relative">
