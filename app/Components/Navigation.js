@@ -39,7 +39,7 @@ export default function Navbar() {
     if (trimmed) {
       router.push(`/search?query=${encodeURIComponent(trimmed)}`);
       setSearchTerm("");
-      setIsSearchOpen(false); // أغلق البحث بعد التوجيه
+      setIsSearchOpen(false);
     }
   };
 
@@ -49,9 +49,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white/25 shadow-md sticky top-0 z-50 px-4 lg:px-10 py-4">
+      <nav className="bg-white shadow-md sticky top-0 z-50 px-4 lg:px-10 py-4">
         <div className="flex items-center justify-between gap-4">
-          {/* ----------------- زر الفئات ------------------ */}
+          {/* ------------------- categories dropdown --------------------- */}
           <div className="relative">
             <button
               onClick={() => setOpenCategories(!openCategories)}
@@ -71,8 +71,7 @@ export default function Navbar() {
               </div>
             )}
           </div>
-
-          {/* ------------------- شريط البحث (لـ الموبايل & الديسكتوب) --------------------- */}
+          {/* ------------------- search bar mobile desktop--------------------- */}
           <div className="hidden md:flex items-center border border-gray-300 rounded-lg overflow-hidden w-full max-w-full md:max-w-md">
             <input
               type="text"
@@ -89,71 +88,72 @@ export default function Navbar() {
               <FaSearch className="text-white" />
             </button>
           </div>
-
-          {/* -------------------- الأزرار الجانبية -------------------- */}
-          <div className="flex items-center justify-between gap-3 w-full md:w-auto">
-            {/* ---------------- زر البحث للموبايل فقط ---------------- */}
-            <button
-              onClick={() => setIsSearchOpen(true)}
-              className="md:hidden p-2 bg-gray-100 rounded-md text-gray-700"
-            >
-              <FaSearch />
-            </button>
-
-            {/* ---------------- عربة التسوق ---------------- */}
-            <div className="relative">
-              <Button
-                variant="ghost"
-                onClick={() => setIsCartOpen(!isCartOpen)}
-                className="relative text-primary"
+          <div>
+            {/* -------------------- side buttons-------------------- */}
+            <div className="flex items-center justify-between gap-3 w-full md:w-auto">
+              {/* ---------------- mobile search button ---------------- */}
+              <button
+                onClick={() => setIsSearchOpen(true)}
+                className="md:hidden p-2 bg-gray-100 rounded-md text-gray-700"
               >
-                <CartIcon className="w-5 h-5" />
-              </Button>
-              {isCartOpen && (
-                <div className="absolute top-12 right-0 bg-white z-50 shadow-lg rounded-md animate-fade-in">
-                  <ShoppingCart />
-                </div>
-              )}
-            </div>
+                <FaSearch />
+              </button>
 
-            {/* ---------------- المستخدم ---------------- */}
-            <SignedIn>
-              <UserButton
-                afterSignOutUrl="/"
-                appearance={{
-                  elements: {
-                    userButtonAvatarBox: {
-                      width: "40px",
-                      height: "40px",
-                    },
-                    userButtonPopoverCard: {
-                      borderRadius: "12px",
-                      boxShadow: "0 0 10px rgba(0,0,0,0.1)",
-                    },
-                  },
-                }}
-              />
-            </SignedIn>
-
-            <SignedOut>
-              <SignInButton mode="modal">
-                <Button variant="outline" className="p-2">
-                  <FaUser size={20} className="text-gray-500" />
+              {/* ---------------- shopping cart ---------------- */}
+              <div className="relative">
+                <Button
+                  variant="ghost"
+                  onClick={() => setIsCartOpen(!isCartOpen)}
+                  className="relative text-primary"
+                >
+                  <CartIcon className="w-5 h-5" />
                 </Button>
-              </SignInButton>
-            </SignedOut>
+                {isCartOpen && (
+                  <div className="absolute top-12 right-0 bg-white z-50 shadow-lg rounded-md animate-fade-in">
+                    <ShoppingCart />
+                  </div>
+                )}
+              </div>
 
-            {/* ---------------- Vente Flash ---------------- */}
-            {/* <Link href="/venteflash" className="cursor-pointer">
+              {/* ---------------- user button ---------------- */}
+              <SignedIn>
+                <UserButton
+                  afterSignOutUrl="/"
+                  appearance={{
+                    elements: {
+                      userButtonAvatarBox: {
+                        width: "40px",
+                        height: "40px",
+                      },
+                      userButtonPopoverCard: {
+                        borderRadius: "12px",
+                        boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+                      },
+                    },
+                  }}
+                />
+              </SignedIn>
+
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <Button variant="outline" className="p-2">
+                    <FaUser size={20} className="text-gray-500" />
+                  </Button>
+                </SignInButton>
+              </SignedOut>
+
+              {/* ---------------- Vente Flash ---------------- */}
+              {/* <Link href="/venteflash" className="cursor-pointer">
               <Button variant="secondary">
                 <TiFlash />
               </Button>
             </Link> */}
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* ---------------- نافذة البحث العلوية في الجوال ---------------- */}
+      {/* ---------------- mobile search overlay ---------------- */}
       {isSearchOpen && (
         <div className="fixed inset-0 bg-black/60 bg-opacity-30 backdrop-blur-sm z-[9999] flex items-start justify-center pt-10 px-4">
           <div className="bg-white w-full rounded-lg shadow-md max-w-md mx-auto p-4 relative">

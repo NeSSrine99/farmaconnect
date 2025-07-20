@@ -1,5 +1,4 @@
 import React from "react";
-import Rating from "./ui/Rating";
 import { GrMapLocation } from "react-icons/gr";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineHealthAndSafety } from "react-icons/md";
@@ -8,38 +7,45 @@ import { LiaStarHalfAltSolid } from "react-icons/lia";
 
 const HomeSection1 = () => {
   return (
-    <div className="flex flex-wrap items-center  justify-between bg-[#E9FBFC] py-4">
-      <div className="flex items-center gap-4">
-        <GrMapLocation size={35} color="#1799A0" />
-        <p className="max-w-[151px] font-medium text-[14px] ">
+    <div className="flex flex-wrap justify-center sm:justify-between items-center gap-6 px-4 py-6 bg-[#E9FBFC] rounded-xl shadow-sm">
+      {/* Location */}
+      <div className="flex items-center gap-4 max-w-xs">
+        <GrMapLocation size={32} className="text-teal-600" />
+        <p className="text-sm font-medium text-gray-800">
           Pharmacie installée en Normandie
         </p>
       </div>
-      <div className="flex items-center gap-4">
-        <MdOutlineHealthAndSafety size={35} color="#1799A0" />
-        <p className="max-w-[151px] font-medium text-[14px] ">
+
+      {/* Products */}
+      <div className="flex items-center gap-4 max-w-xs">
+        <MdOutlineHealthAndSafety size={32} className="text-teal-600" />
+        <p className="text-sm font-medium text-gray-800">
           25 000 médicaments et produits de santé
         </p>
       </div>
-      <div className="flex items-center gap-4">
-        <TbTruckDelivery size={35} color="#1799A0" />
-        <p className="max-w-[212px] font-medium text-[14px] ">
-          Livraison et expédition en 24h en Nice{" "}
+
+      {/* Delivery */}
+      <div className="flex items-center gap-4 max-w-xs">
+        <TbTruckDelivery size={32} className="text-teal-600" />
+        <p className="text-sm font-medium text-gray-800">
+          Livraison et expédition en 24h en Nice
         </p>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="flex flex-col items-center">
-          <p className="font-semibold text-[14px]">4.9</p>
-          <div className="flex items-center gap-1">
-            <RiStarSFill color="yellow" />
-            <RiStarSFill color="yellow" />
-            <RiStarSFill color="yellow" />
-            <RiStarSFill color="yellow" />
-            <LiaStarHalfAltSolid color="yellow" />
+
+      {/* Rating */}
+      <div className="flex items-center gap-4 max-w-xs">
+        <div className="flex flex-col items-center text-yellow-500">
+          <span className="text-sm font-semibold text-gray-800">4.9</span>
+          <div className="flex">
+            <RiStarSFill />
+            <RiStarSFill />
+            <RiStarSFill />
+            <RiStarSFill />
+            <LiaStarHalfAltSolid />
           </div>
         </div>
-        <p className="max-w-[151px] font-medium text-[14px] ">
-          Moyenne de 4.9 sur 58098 avis{" "}
+        <p className="text-sm font-medium text-gray-800">
+          Moyenne de 4.9 sur 58 098 avis
         </p>
       </div>
     </div>

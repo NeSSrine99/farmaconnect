@@ -47,11 +47,14 @@ export default function Header() {
         >
           <TbCategory /> Catégories
         </Link>
-        <Link href="/about" className="flex items-center gap-2 hover:underline">
-          <TbPhoneCall /> Consultation
+        <Link href="/blog" className="flex items-center gap-2 hover:underline">
+          <TbPhoneCall /> Blog
         </Link>
-        <Link href="/about" className="flex items-center gap-2 hover:underline">
-          <IoChatbubblesOutline /> Chatboot
+        <Link
+          href="/consultation"
+          className="flex items-center gap-2 hover:underline"
+        >
+          <IoChatbubblesOutline /> Consultation
         </Link>
       </div>
 
@@ -65,16 +68,16 @@ export default function Header() {
             <TbCategory /> Catégories
           </Link>
           <Link
-            href="/about"
+            href="/blog"
             className="flex items-center gap-2 hover:underline text-neutral-400 text-lg font-normal "
           >
-            <TbPhoneCall /> Consultation
+            <TbPhoneCall /> Blog
           </Link>
           <Link
-            href="/about"
+            href="/consultation"
             className="flex items-center gap-2 hover:underline text-neutral-400 text-lg font-normal "
           >
-            <IoChatbubblesOutline /> Chatboot
+            <IoChatbubblesOutline /> Consultation
           </Link>
         </div>
       )}
