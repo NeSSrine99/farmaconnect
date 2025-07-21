@@ -1,21 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import {
-  FaBaby,
-  FaLeaf,
-  FaCapsules,
-  FaHandHoldingMedical,
-  FaStethoscope,
-  FaGift,
-  FaSpa,
-  FaHeart,
-} from "react-icons/fa";
+import { FaBaby, FaLeaf, FaCapsules, FaGift, FaHeart } from "react-icons/fa";
 import { MdOutlineMedicalServices } from "react-icons/md";
 
 const categories = [
   {
     id: 1,
+    link: "/categories?category=Médicaments",
     name: "Médicaments",
     icon: <MdOutlineMedicalServices className="text-4xl text-red-500" />,
   },
@@ -26,21 +18,25 @@ const categories = [
   // },
   {
     id: 3,
+    link: "/categories?category=Parapharmacie",
     name: "Parapharmacie",
     icon: <FaHeart className="text-4xl text-pink-500" />,
   },
   {
     id: 4,
+    link: "/categories?category=Compléments%20alimentaires",
     name: "Compléments alimentaires",
     icon: <FaCapsules className="text-4xl text-indigo-500" />,
   },
   {
     id: 5,
+    link: "/categories?category=Beauté%20Soins",
     name: "Beauté Soins",
     icon: <FaLeaf className="text-4xl text-green-600" />,
   },
   {
     id: 6,
+    link: "/categories?category=Bébé%20Maman",
     name: "Bébé Maman",
     icon: <FaBaby className="text-4xl text-pink-400" />,
   },
