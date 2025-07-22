@@ -91,7 +91,7 @@ export default function ShoppingCart() {
             {/* Checkout Button */}
             <div className="flex items-center justify-center gap-4 mt-4 w-full ">
               <SignedIn>
-                <Link href="/checkout" className="w-full">
+                <Link href="/panier" className="w-full">
                   <Button variant="primary" className="w-full">
                     Checkout
                   </Button>

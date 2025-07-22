@@ -9,11 +9,21 @@ import {
 } from "react-icons/fa";
 
 const iconMap = {
-  nom: <FaUser />,
-  tel: <FaPhoneAlt />,
-  adresse: <FaMapMarkerAlt />,
-  cin: <FaIdCard />,
-  commentaire: <FaCommentDots />,
+  nom: (
+    <FaUser className="transition-transform duration-300 group-hover:scale-110" />
+  ),
+  tel: (
+    <FaPhoneAlt className="transition-transform duration-300 group-hover:scale-110" />
+  ),
+  adresse: (
+    <FaMapMarkerAlt className="transition-transform duration-300 group-hover:scale-110" />
+  ),
+  cin: (
+    <FaIdCard className="transition-transform duration-300 group-hover:scale-110" />
+  ),
+  commentaire: (
+    <FaCommentDots className="transition-transform duration-300 group-hover:scale-110" />
+  ),
 };
 
 export default function Input({
@@ -24,19 +34,25 @@ export default function Input({
   placeholder,
   value,
   onChange,
+  className = "",
 }) {
   return (
-    <div className="flex flex-col gap-1">
-      <label className="font-medium text-gray-700">
+    <div className={`flex flex-col gap-1 group ${className}`}>
+      <label className="font-semibold text-gray-700 transition-colors group-hover:text-primary">
         {label} {required && <span className="text-red-500 font-bold">*</span>}
       </label>
-      <div className="flex items-center border rounded px-3 py-2 bg-white focus-within:ring-2 ring-primary transition">
-        <span className="text-gray-500 mr-2">{iconMap[name]}</span>
+
+      <div
+        className="flex items-center gap-2 border border-gray-400 rounded px-4 py-2 bg-white transition-all duration-300 
+                   hover:shadow-md focus-within:shadow-lg focus-within:ring-2 ring-primary"
+      >
+        <span className="text-gray-500">{iconMap[name]}</span>
+
         {type === "textarea" ? (
           <textarea
             name={name}
             placeholder={placeholder}
-            className="flex-1 outline-none text-sm resize-none"
+            className="flex-1 outline-none text-sm resize-none bg-transparent"
             rows={3}
             value={value}
             onChange={onChange}
@@ -46,7 +62,7 @@ export default function Input({
             type={type}
             name={name}
             placeholder={placeholder}
-            className="flex-1 outline-none text-sm"
+            className="flex-1 outline-none text-sm bg-transparent"
             value={value}
             onChange={onChange}
             required={required}
