@@ -3,8 +3,8 @@ import React from "react";
 
 const AddressShipping = () => {
   return (
-    <div>
-      <h2 className="text-xl font-bold my-4 text-start text-primary">
+    <div className="border border-gray-400 p-4 rounded bg-white shadow-md ">
+      <h2 className="text-left text-lg font-medium text-gray-700 mb-5 ">
         Shipping Address
       </h2>
       <form className="space-y-4">

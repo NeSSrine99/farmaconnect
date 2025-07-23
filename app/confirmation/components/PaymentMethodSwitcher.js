@@ -3,6 +3,7 @@ import { useState } from "react";
 import Input from "../../components/ui/Input";
 import { FaCcMastercard, FaCcVisa } from "react-icons/fa";
 import Button from "../../components/ui/Button";
+import { FiAlertCircle } from "react-icons/fi";
 
 export default function PaymentMethodSwitcher() {
   const [selectedMethod, setSelectedMethod] = useState("credit");
@@ -12,8 +13,8 @@ export default function PaymentMethodSwitcher() {
   };
 
   return (
-    <div className="w-full  mx-auto">
-      <h2 className="text-left text-2xl font-bold text-primary mb-10">
+    <div className="w-full  mx-auto border border-gray-400 p-4 rounded bg-white shadow-md">
+      <h2 className="text-left text-lg font-medium text-gray-700 mb-5">
         Paiement Methods
       </h2>
       {/*  Switch Buttons */}
@@ -41,7 +42,7 @@ export default function PaymentMethodSwitcher() {
       </div>
 
       {/*  Content depending on selected method */}
-      <div className="bg-gray-50 border p-4 rounded">
+      <div className="">
         {selectedMethod === "credit" ? (
           <div className="flex flex-col gap-4">
             <section className="flex flex-col gap-4">
@@ -84,13 +85,21 @@ export default function PaymentMethodSwitcher() {
             </section>
           </div>
         ) : (
-          <div>
-            <h3 className="font-bold mb-2 text-gray-800">
-              Paiement à la Livraison
-            </h3>
-            <p className="text-sm text-gray-600">
-              Vous payez en espèces lors de la réception du colis.
-            </p>
+          <div className="flex flex-col gap-4">
+            <section className="flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-xl bg-teal-100 ">
+              <FiAlertCircle size={24} />
+              <span className="font-semibold">
+                Non-refundable COD fees of $1 will be applied
+              </span>
+            </section>
+            <section className="flex lg:flex-row items-center gap-4">
+              <Input
+                name="discount code"
+                placeholder="Enter Discount code "
+                className="w-full"
+              />
+              <Button variant="tertiary">Apply</Button>
+            </section>
           </div>
         )}
       </div>

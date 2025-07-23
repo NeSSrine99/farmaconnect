@@ -21,8 +21,8 @@ const methods = [
 
 export default function MethodShipping() {
   return (
-    <section className="">
-      <h2 className="text-2xl font-bold mb-10 text-primary text-start">
+    <section className="border border-gray-400 p-4 rounded bg-white shadow-md">
+      <h2 className="text-left text-lg font-medium text-gray-700 mb-5">
         Méthode de Livraison
       </h2>
       <div className="flex flex-wrap items-start  gap-4">
@@ -30,7 +30,7 @@ export default function MethodShipping() {
           return (
             <div
               key={method.id}
-              className="max-w-[300px] flex flex-col items-center  border p-4 rounded"
+              className="max-w-[300px] flex flex-col items-center  border border-gray-400 p-4 rounded"
             >
               <div className="flex  items-center gap-2 ">
                 {method.icon}
