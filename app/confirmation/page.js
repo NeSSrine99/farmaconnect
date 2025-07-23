@@ -3,8 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
-
-import Input from "../components/ui/Input";
 import ExitModal from "./components/ExitModal";
 import AddressShipping from "./components/AddressShipping";
 import MethodShipping from "./components/MethodShipping";
@@ -35,7 +33,6 @@ export default function CheckoutPage() {
   const [showSavedAddressSection, setShowSavedAddressSection] = useState(false);
   const [showSavedCardSection, setShowSavedCardSection] = useState(false);
 
-  // ✅ تحميل البيانات من localStorage حسب البريد
   useEffect(() => {
     if (!isSignedIn || !user?.emailAddresses?.[0]?.emailAddress) return;
 
@@ -62,7 +59,6 @@ export default function CheckoutPage() {
     }
   }, [isSignedIn, user]);
 
-  // 🔁 Modal عند محاولة مغادرة الصفحة
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       e.preventDefault();
@@ -75,13 +71,11 @@ export default function CheckoutPage() {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, []);
 
-  // ✅ تحديث النموذج
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  // ✅ حفظ حسب المستخدم المسجل
   const handleSave = () => {
     if (!isSignedIn || !user?.emailAddresses?.[0]?.emailAddress) return;
     const email = user.emailAddresses[0].emailAddress;
@@ -102,7 +96,6 @@ export default function CheckoutPage() {
     }
 
     setShowExitModal(false);
-    // router.push("/confirmation"); // أزل التعليق إذا أردت التوجيه
   };
 
   return (

@@ -10,10 +10,10 @@ const AddressShipping = ({ showSavedSection }) => {
       <h2 className="text-left text-lg font-medium text-gray-700 mb-5">
         Shipping Address
       </h2>
-      <form className="space-y-4">
+      <form className=" space-y-4">
         {/* القسم العادي */}
-        <div className={showSavedSection ? "hidden" : "block"}>
-          <div className="flex flex-wrap gap-4">
+        <div className={showSavedSection ? "hidden " : "block space-y-4"}>
+          <div className="flex md:flex-row flex-col gap-4">
             <Input
               name="nom"
               placeholder="Full Name"
@@ -25,7 +25,7 @@ const AddressShipping = ({ showSavedSection }) => {
               className="flex-1 w-full"
             />
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex md:flex-row flex-col gap-4">
             <Input
               name="email"
               placeholder="Email Address"
@@ -37,11 +37,11 @@ const AddressShipping = ({ showSavedSection }) => {
               className="flex-1 w-full"
             />
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex md:flex-row flex-col gap-4">
             <Input name="state" placeholder="State" className="flex-1 w-full" />
             <Input name="city" placeholder="City" className="flex-1 w-full" />
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex md:flex-row flex-col gap-4">
             <Input
               name="postal"
               placeholder="Postal Code"
@@ -53,7 +53,7 @@ const AddressShipping = ({ showSavedSection }) => {
               className="flex-1 w-full"
             />
           </div>
-          <div className="ml-2 flex items-center gap-2">
+          <div className="ml-2 mt-4 flex items-center gap-2">
             <input type="checkbox" className="accent-primary" />
             <label className="text-sm text-gray-600">
               Make as default shipping address

@@ -33,15 +33,12 @@ export default function Banner() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <Button className="bg-primary text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 transition-all duration-200 shadow-md hover:scale-105 hover:shadow-lg">
+            <Button className="flex items-center gap-2">
               <FaShoppingCart className="w-5 h-5" />
               Commander maintenant
             </Button>
 
-            <Button
-              variant="tertiary"
-              className="text-primary border border-primary hover:bg-primary hover:text-white transition-all duration-200 rounded-full px-6 py-3"
-            >
+            <Button variant="tertiary" className="">
               En savoir plus
             </Button>
           </div>
