@@ -24,7 +24,7 @@ const HomeSection3 = () => {
           className=" self-stretch h-96 w-full "
           height={400}
         />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-end sm:flex-row flex-col gap-2 w-full max-w-md">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-end md:flex-row flex-col gap-2 w-full ">
           <div className="backdrop-blur-md p-4 rounded-md">
             <p className="self-stretch text-center justify-center text-cyan-50 text-base font-semibold  tracking-[2.56px] ">
               OFFRES SPECIALES
@@ -44,7 +44,7 @@ const HomeSection3 = () => {
             </p>
           </div>
           <Link href="/venteflash">
-            <Button variant="secondary" className="cursor-pointer">
+            <Button variant="secondary" className="cursor-pointer ">
               J'en profite
             </Button>
           </Link>
