@@ -1,11 +1,11 @@
 import React from "react";
 
 const Button = ({
-  children, //content of button
+  children,
   type = "button",
-  variant = "primary", // primary, secondary, danger...
-  className = "", //to make class name variant
-  onClick, // i need this function to view cardShopping cart when i click in the button of panier
+  variant = "primary",
+  className = "",
+  onClick,
 }) => {
   const baseStyles = "px-4 py-2 rounded";
 

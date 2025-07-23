@@ -1,8 +1,6 @@
 import React from "react";
 import { useCart } from "../../context/CartContext";
-import { TbTruckDelivery } from "react-icons/tb";
 import { BsTrash3 } from "react-icons/bs";
-import Link from "next/link";
 import Button from "../../components/ui/Button";
 
 const ProductsShop = () => {

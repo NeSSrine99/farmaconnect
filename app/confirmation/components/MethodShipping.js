@@ -1,6 +1,5 @@
 import React from "react";
 import { FaMoneyBillWave, FaTruck } from "react-icons/fa";
-import { IoIosFlash } from "react-icons/io";
 
 const methods = [
   {

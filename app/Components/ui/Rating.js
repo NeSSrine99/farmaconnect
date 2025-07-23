@@ -8,7 +8,7 @@ export default function Rating({
   onChange,
   total = 5,
   showCount = true,
-  variant = "display", // "interactive" | "display"
+  variant = "display",
 }) {
   const [rating, setRating] = useState(value);
   const [hover, setHover] = useState(0);

@@ -39,7 +39,7 @@ export default function PaymentMethodSwitcher({ showSavedSection }) {
         </button>
       </div>
 
-      {/* القسم العادي */}
+      {/* section in normal */}
       <div className={showSavedSection ? "hidden" : "block"}>
         {selectedMethod === "credit" ? (
           <div className="flex flex-col gap-4">
@@ -95,13 +95,14 @@ export default function PaymentMethodSwitcher({ showSavedSection }) {
         )}
       </div>
 
-      {/* القسم المحفوظ */}
+      {/* section in saved */}
       <section className={showSavedSection ? "space-y-4 block" : "hidden"}>
         <Input
           name="cart"
           placeholder="Saved Card: **** **** **** 1234"
           extraControl={<input type="radio" name="cart-option" />}
         />
+
         <Input
           name="cart"
           placeholder="CVV"

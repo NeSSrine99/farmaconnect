@@ -1,4 +1,3 @@
-// app/sign-in/[[...sign-in]]/page.tsx
 "use client";
 
 import { SignIn } from "@clerk/nextjs";
@@ -11,7 +10,7 @@ export default function SignInPage() {
         appearance={{
           baseTheme: dark,
           variables: {
-            colorPrimary: "#6D28D9", // بنفسجي مثلاً
+            colorPrimary: "#6D28D9",
           },
           elements: {
             card: "shadow-xl rounded-xl",

@@ -102,19 +102,19 @@ export default function CheckoutPage() {
     <div className="bg-gray-50 py-[100px] lg:px-[120px] sm:px-[35px] px-4">
       <h2 className="text-xl font-semibold mb-10">Checkout</h2>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {/* القسم الأيسر */}
+        {/* section on the left */}
         <div className="lg:col-span-2 space-y-8">
-          {/* العنوان */}
+          {/* address */}
           <AddressShipping
             showSavedSection={showSavedAddressSection}
             form={form}
             onChange={handleChange}
           />
 
-          {/* التوصيل */}
+          {/* delivery */}
           <MethodShipping />
 
-          {/* الدفع */}
+          {/* payment */}
           <PaymentMethodSwitcher
             showSavedSection={showSavedCardSection}
             form={form}
@@ -122,10 +122,10 @@ export default function CheckoutPage() {
           />
         </div>
 
-        {/* ملخص السلة */}
+        {/* cart summary */}
         <ProductsShop />
 
-        {/* نافذة الخروج */}
+        {/* exit modal */}
         <ExitModal
           visible={showExitModal}
           onClose={() => setShowExitModal(false)}

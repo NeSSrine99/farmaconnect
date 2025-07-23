@@ -11,11 +11,7 @@ const categories = [
     name: "Médicaments",
     icon: <MdOutlineMedicalServices className="text-4xl text-red-500" />,
   },
-  // {
-  //   id: 2,
-  //   name: "Homeopathic",
-  //   icon: <FaSpa className="text-4xl text-teal-600" />,
-  // },
+
   {
     id: 3,
     link: "/categories?category=Parapharmacie",
@@ -40,17 +36,7 @@ const categories = [
     name: "Bébé Maman",
     icon: <FaBaby className="text-4xl text-pink-400" />,
   },
-  // {
-  //   id: 7,
-  //   name: "Bio Médecines naturelles",
-  //   icon: <FaHandHoldingMedical className="text-4xl text-lime-600" />,
-  // },
-  // {
-  //   id: 8,
-  //   link: "/materiel-medical",
-  //   name: "Matériel médical",
-  //   icon: <FaStethoscope className="text-4xl text-blue-700" />,
-  // },
+
   {
     id: 9,
     link: "/venteflash",

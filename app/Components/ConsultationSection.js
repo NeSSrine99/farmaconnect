@@ -56,7 +56,7 @@ export default function SanteConseilsSection() {
             </div>
           </div>
 
-          {/* ✅ Carte 3 : Contact */}
+          {/*  Carte 3 : Contact */}
           <div className="bg-white rounded-xl shadow-lg flex flex-col h-full justify-between">
             <div className="p-6">
               <h3 className="text-lg font-semibold text-black mb-2">

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FaBolt } from "react-icons/fa";
 
 export default function VenteFlashBanner() {
   return (

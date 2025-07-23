@@ -1,4 +1,3 @@
-// components/CartIcon.js
 "use client";
 
 import { MdOutlineShoppingCart } from "react-icons/md";

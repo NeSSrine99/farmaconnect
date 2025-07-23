@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { RiBloggerLine } from "react-icons/ri";
 import { TbCategory, TbPhoneCall } from "react-icons/tb";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Header() {
     <nav className="flex items-center justify-between py-2 px-4 relative">
       {/* Logo */}
       <a href="/" className="flex items-end">
-        <img
+        <Image
           src="FarmaconnectLogo.svg"
           alt="logo"
           className="mb-2 w-10 h-12"

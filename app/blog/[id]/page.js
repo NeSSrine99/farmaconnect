@@ -32,7 +32,7 @@ export default function BlogDetails() {
         {/* Image */}
         <div className="w-full h-64 md:h-[400px] relative mb-10 rounded-xl overflow-hidden shadow-md">
           <Image
-            src="/blog/immune.jpg"
+            src="/blog/immune.jpeg"
             alt="Immune System"
             fill
             className="object-cover"

@@ -1,4 +1,3 @@
-// components/BlogPage.jsx
 "use client";
 
 import Image from "next/image";
@@ -10,7 +9,7 @@ const articles = [
     title: "5 conseils pour renforcer votre système immunitaire",
     excerpt:
       "Découvrez des habitudes simples et des produits recommandés pour booster naturellement vos défenses.",
-    image: "/blog/immune.jpg",
+    image: "/blog/immune.jpeg",
     date: "Juillet 18, 2025",
     author: "Dr. Lina B.",
     category: "Santé",
@@ -20,7 +19,7 @@ const articles = [
     title: "Quelle crème solaire choisir cet été ?",
     excerpt:
       "Tout savoir sur les protections solaires adaptées à chaque type de peau.",
-    image: "/blog/sunscreen.jpg",
+    image: "/blog/sunscreen.jpeg",
     date: "Juillet 12, 2025",
     author: "PharmaConnect",
     category: "Conseils",
@@ -30,7 +29,7 @@ const articles = [
     title: "Comprendre les probiotiques et leurs bienfaits",
     excerpt:
       "Les probiotiques sont essentiels à votre flore intestinale. Apprenez quand et comment les utiliser.",
-    image: "/blog/probiotics.jpg",
+    image: "/blog/probiotics.jpeg",
     date: "Juillet 05, 2025",
     author: "Pharma Team",
     category: "Nutrition",

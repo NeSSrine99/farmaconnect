@@ -142,8 +142,8 @@ export const products = [
     rupture: "En stock",
     Description: "Spray d'eau thermale apaisante et anti-irritante.",
     category: "Beauté Soins",
-    rating: 3.5,
-    reviews: 60,
+    rating: 2.8, // bad review
+    reviews: 12,
   },
   {
     id: 10,
@@ -204,6 +204,8 @@ export const products = [
     rupture: "En stock",
     Description: "Crème de jour anti-rides enrichie en acide hyaluronique.",
     category: "Beauté Soins",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 14,
@@ -416,6 +418,8 @@ export const products = [
     Description:
       "Soulagement rapide des douleurs légères à modérées et fièvre.",
     category: "Médicaments",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 28,
@@ -429,6 +433,8 @@ export const products = [
     Description:
       "Analgésique et antipyrétique pour douleurs fortes et fièvre élevée.",
     category: "Médicaments",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 29,
@@ -442,6 +448,8 @@ export const products = [
     Description:
       "Soulagement des douleurs et renforcement du système immunitaire.",
     category: "Médicaments",
+    rating: 2.5, // bad review
+    reviews: 8,
   },
   {
     id: 30,
@@ -455,6 +463,8 @@ export const products = [
     Description:
       "Traitement des douleurs spasmodiques abdominales et urinaires.",
     category: "Médicaments",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 31,
@@ -467,6 +477,8 @@ export const products = [
     rupture: "En stock",
     Description: "Traitement des symptômes du rhume et de la grippe.",
     category: "Médicaments",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 32,
@@ -480,6 +492,8 @@ export const products = [
     Description:
       "Patch chauffant pour soulager les douleurs musculaires et articulaires.",
     category: "Médicaments",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 33,
@@ -493,6 +507,8 @@ export const products = [
     Description:
       "Infusion apaisante pour enfants contre les coliques et les douleurs abdominales.",
     category: "Médicaments",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 34,
@@ -506,6 +522,8 @@ export const products = [
     Description:
       "Traitement des affections des voies respiratoires supérieures.",
     category: "Médicaments",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 35,
@@ -519,6 +537,8 @@ export const products = [
     Description:
       "Traitement des troubles digestifs et des douleurs abdominales.",
     category: "Médicaments",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 36,
@@ -532,6 +552,8 @@ export const products = [
     Description:
       "Pansement hydrocolloïde pour soulager et accélérer la guérison des ampoules.",
     category: "Produits de soin",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 37,
@@ -545,6 +567,8 @@ export const products = [
     Description:
       "Complément alimentaire pour renforcer les défenses immunitaires.",
     category: "Vitamines",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 38,
@@ -558,6 +582,8 @@ export const products = [
     Description:
       "Baume apaisant pour soulager la toux et les douleurs musculaires.",
     category: "Produits de soin",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 39,
@@ -571,6 +597,8 @@ export const products = [
     Description:
       "Complément alimentaire pour maintenir une bonne santé osseuse.",
     category: "Vitamines",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 40,
@@ -584,6 +612,8 @@ export const products = [
     Description:
       "Complément alimentaire pour renforcer les os et le système immunitaire.",
     category: "Vitamines",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 41,
@@ -597,6 +627,8 @@ export const products = [
     Description:
       "Complément alimentaire pour réguler le cycle menstruel et améliorer la fertilité.",
     category: "Produits de soin",
+    rating: 4.0,
+    reviews: 10,
   },
 
   //Compléments alimentaires
@@ -612,6 +644,8 @@ export const products = [
     Description:
       "Complément alimentaire multivitaminé pour soutenir l'énergie et la vitalité.",
     category: "Compléments alimentaires",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 43,
@@ -625,6 +659,8 @@ export const products = [
     Description:
       "Complément pour renforcer le système immunitaire, riche en vitamines et minéraux.",
     category: "Compléments alimentaires",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 44,
@@ -638,6 +674,8 @@ export const products = [
     Description:
       "Complément alimentaire à base d'Oméga-3 pour favoriser la santé cardiovasculaire.",
     category: "Compléments alimentaires",
+    rating: 2.9, // bad review
+    reviews: 7,
   },
   {
     id: 45,
@@ -651,6 +689,8 @@ export const products = [
     Description:
       "Multivitamines et minéraux pour compléter l'alimentation quotidienne.",
     category: "Compléments alimentaires",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 46,
@@ -664,6 +704,8 @@ export const products = [
     Description:
       "Complément de vitamine C pour renforcer le système immunitaire et lutter contre la fatigue.",
     category: "Compléments alimentaires",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 47,
@@ -677,6 +719,8 @@ export const products = [
     Description:
       "Complément alimentaire pour maintenir des os solides et des muscles en bonne santé.",
     category: "Compléments alimentaires",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 48,
@@ -690,6 +734,8 @@ export const products = [
     Description:
       "Probiotiques pour maintenir une flore intestinale saine et soutenir la digestion.",
     category: "Compléments alimentaires",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 49,
@@ -703,6 +749,8 @@ export const products = [
     Description:
       "Biotine pour favoriser la santé des cheveux, de la peau et des ongles.",
     category: "Compléments alimentaires",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 50,
@@ -716,6 +764,8 @@ export const products = [
     Description:
       "Protéine végétale bio, idéale pour les sportifs et les végétariens.",
     category: "Compléments alimentaires",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 51,
@@ -729,6 +779,8 @@ export const products = [
     Description:
       "Complément alimentaire à base de collagène pour améliorer l'élasticité de la peau.",
     category: "Compléments alimentaires",
+    rating: 4.3,
+    reviews: 30,
   },
 
   //Bébé Maman
@@ -745,6 +797,8 @@ export const products = [
     Description:
       "Crème hydratante pour la peau délicate des bébés, à base d'ingrédients naturels.",
     category: "Bébé Maman",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 53,
@@ -758,6 +812,8 @@ export const products = [
     Description:
       "Porridge bio pour bébé, riche en vitamines et minéraux essentiels.",
     category: "Bébé Maman",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 54,
@@ -771,6 +827,8 @@ export const products = [
     Description:
       "Pommade protectrice pour le change du bébé, aide à prévenir les érythèmes fessiers.",
     category: "Bébé Maman",
+    rating: 2.7, // bad review
+    reviews: 6,
   },
   {
     id: 55,
@@ -784,6 +842,8 @@ export const products = [
     Description:
       "Tétine en silicone pour bébés, adaptée à la bouche et aux dents des nourrissons.",
     category: "Bébé Maman",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 56,
@@ -797,6 +857,8 @@ export const products = [
     Description:
       "Couches jetables pour bébés, ultra absorbantes pour un confort optimal.",
     category: "Bébé Maman",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 57,
@@ -810,6 +872,8 @@ export const products = [
     Description:
       "Crème hydratante pour les mamelons, idéale pour les mères allaitantes.",
     category: "Bébé Maman",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 58,
@@ -823,6 +887,8 @@ export const products = [
     Description:
       "Huile de massage douce et apaisante pour bébé, à base d'ingrédients naturels.",
     category: "Bébé Maman",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 59,
@@ -836,6 +902,8 @@ export const products = [
     Description:
       "Gel lavant doux pour le bain de bébé, respectueux de sa peau sensible.",
     category: "Bébé Maman",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 60,
@@ -849,6 +917,8 @@ export const products = [
     Description:
       "Biberon en plastique avec tétine anti-coliques, idéal pour l'alimentation de bébé.",
     category: "Bébé Maman",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 61,
@@ -862,6 +932,8 @@ export const products = [
     Description:
       "Lait infantile adapté aux nourrissons, riche en nutriments essentiels.",
     category: "Bébé Maman",
+    rating: 4.3,
+    reviews: 30,
   },
 
   // Homeopathic
@@ -878,6 +950,8 @@ export const products = [
     Description:
       "Remède homéopathique contre les symptômes de la grippe, notamment la fièvre, la fatigue et les douleurs corporelles.",
     category: "Homeopathic",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 63,
@@ -891,6 +965,8 @@ export const products = [
     Description:
       "Huile de massage homéopathique à base d'arnica pour soulager les douleurs musculaires et les tensions.",
     category: "Homeopathic",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 64,
@@ -904,6 +980,8 @@ export const products = [
     Description:
       "Médicament homéopathique pour traiter les douleurs et inflammations musculaires et articulaires.",
     category: "Homeopathic",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 65,
@@ -917,6 +995,8 @@ export const products = [
     Description:
       "Traitement homéopathique pour soulager les douleurs liées à la poussée dentaire chez les bébés.",
     category: "Homeopathic",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 66,
@@ -930,6 +1010,8 @@ export const products = [
     Description:
       "Remède homéopathique pour réduire le stress et l'anxiété, sans effets secondaires.",
     category: "Homeopathic",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 67,
@@ -943,6 +1025,8 @@ export const products = [
     Description:
       "Remède homéopathique pour soulager les symptômes d'anxiété et d'insomnie.",
     category: "Homeopathic",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 68,
@@ -956,6 +1040,8 @@ export const products = [
     Description:
       "Traitement homéopathique pour soulager les douleurs musculaires, les contusions et les blessures légères.",
     category: "Homeopathic",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 69,
@@ -969,6 +1055,8 @@ export const products = [
     Description:
       "Crème homéopathique pour soulager les irritations et apaiser la peau délicate des bébés et des adultes.",
     category: "Homeopathic",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 70,
@@ -982,6 +1070,8 @@ export const products = [
     Description:
       "Remède de fleurs de Bach pour gérer le stress et les émotions fortes, une solution naturelle pour l'anxiété.",
     category: "Homeopathic",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 71,
@@ -995,7 +1085,8 @@ export const products = [
     Description:
       "Remède homéopathique pour favoriser le sommeil naturel et traiter l'insomnie sans effets secondaires.",
     category: "Homeopathic",
-
+    rating: 4.3,
+    reviews: 30,
     //Parapharmacie
     id: 72,
     marque: "Vichy",
@@ -1008,6 +1099,8 @@ export const products = [
     Description:
       "Sérum hydratant quotidien qui renforce la peau et protège contre les agressions extérieures.",
     category: "Parapharmacie",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 73,
@@ -1021,6 +1114,8 @@ export const products = [
     Description:
       "Crème solaire à très haute protection pour les peaux sensibles, protège contre les rayons UVA et UVB.",
     category: "Parapharmacie",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 74,
@@ -1034,6 +1129,8 @@ export const products = [
     Description:
       "Spray d'eau thermale apaisante pour hydrater et rafraîchir la peau, idéal pour les peaux sensibles.",
     category: "Parapharmacie",
+    rating: 2.6, // bad review
+    reviews: 9,
   },
   {
     id: 75,
@@ -1047,6 +1144,8 @@ export const products = [
     Description:
       "Solution micellaire pour démaquiller et nettoyer en douceur les peaux sensibles.",
     category: "Parapharmacie",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 76,
@@ -1060,6 +1159,8 @@ export const products = [
     Description:
       "Crème hydratante pour bébé, idéale pour la peau délicate des nourrissons et enfants.",
     category: "Parapharmacie",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 77,
@@ -1073,6 +1174,8 @@ export const products = [
     Description:
       "Crème pour les peaux sujettes à l'eczéma et la sécheresse cutanée, soulage les démangeaisons.",
     category: "Parapharmacie",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 78,
@@ -1086,6 +1189,8 @@ export const products = [
     Description:
       "Crème pour les mains à base de beurre de karité, hydrate et nourrit en profondeur les mains sèches.",
     category: "Parapharmacie",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 79,
@@ -1099,6 +1204,8 @@ export const products = [
     Description:
       "Crème anti-âge qui lutte contre les signes de vieillissement et revitalise la peau en profondeur.",
     category: "Parapharmacie",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 80,
@@ -1112,6 +1219,8 @@ export const products = [
     Description:
       "Gel nettoyant pour les peaux mixtes à grasses, aide à éliminer les imperfections et matifier la peau.",
     category: "Parapharmacie",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 81,
@@ -1125,6 +1234,8 @@ export const products = [
     Description:
       "Sérum anti-âge intensif qui redonne à la peau sa jeunesse et son éclat.",
     category: "Parapharmacie",
+    rating: 4.3,
+    reviews: 30,
   },
 
   // Bio Médecines naturelles
@@ -1140,6 +1251,8 @@ export const products = [
     Description:
       "Huile essentielle de lavande vraie, utilisée pour ses propriétés relaxantes et apaisantes.",
     category: "Bio Médecines naturelles",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 83,
@@ -1153,6 +1266,8 @@ export const products = [
     Description:
       "Gel à base d'arnica bio pour soulager les douleurs musculaires et les contusions.",
     category: "Bio Médecines naturelles",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 84,
@@ -1166,6 +1281,8 @@ export const products = [
     Description:
       "Miel de Manuka bio reconnu pour ses propriétés antibactériennes et cicatrisantes.",
     category: "Bio Médecines naturelles",
+    rating: 2.3, // bad review
+    reviews: 5,
   },
   {
     id: 85,
@@ -1179,6 +1296,8 @@ export const products = [
     Description:
       "Complément alimentaire à base de Ginkgo Biloba bio, favorise la circulation sanguine et améliore la mémoire.",
     category: "Bio Médecines naturelles",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 86,
@@ -1192,6 +1311,8 @@ export const products = [
     Description:
       "Infusion détox bio à base de plantes naturelles pour favoriser l'élimination des toxines.",
     category: "Bio Médecines naturelles",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 87,
@@ -1205,6 +1326,8 @@ export const products = [
     Description:
       "Huile essentielle d'eucalyptus radiata bio pour dégager les voies respiratoires et stimuler l'immunité.",
     category: "Bio Médecines naturelles",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 88,
@@ -1218,6 +1341,8 @@ export const products = [
     Description:
       "Huile essentielle de Tea Tree bio, idéale pour ses propriétés antibactériennes et antiseptiques.",
     category: "Bio Médecines naturelles",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 89,
@@ -1231,6 +1356,8 @@ export const products = [
     Description:
       "Tisane relaxante bio à base de plantes apaisantes, idéale pour réduire le stress et favoriser la détente.",
     category: "Bio Médecines naturelles",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 90,
@@ -1244,6 +1371,8 @@ export const products = [
     Description:
       "Huile essentielle de romarin bio, utilisée pour stimuler la circulation sanguine et soulager les douleurs musculaires.",
     category: "Bio Médecines naturelles",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 91,
@@ -1257,6 +1386,8 @@ export const products = [
     Description:
       "Huile essentielle de lavande fine bio, idéale pour la relaxation et l'apaisement du stress.",
     category: "Bio Médecines naturelles",
+    rating: 4.3,
+    reviews: 30,
   },
 
   //Matériel médical
@@ -1272,6 +1403,8 @@ export const products = [
     Description:
       "Tensiomètre automatique avec technologie Intellisense pour une mesure précise de la pression artérielle.",
     category: "Matériel médical",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 93,
@@ -1285,6 +1418,8 @@ export const products = [
     Description:
       "Inhalateur à vapeur pour les voies respiratoires, idéal pour le traitement des rhumes et des problèmes respiratoires.",
     category: "Matériel médical",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 94,
@@ -1298,6 +1433,8 @@ export const products = [
     Description:
       "Thermomètre à infrarouge pour des mesures rapides et sans contact de la température corporelle.",
     category: "Matériel médical",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 95,
@@ -1311,6 +1448,8 @@ export const products = [
     Description:
       "Brosse à dents électrique Sonicare, technologie sonique pour un nettoyage en profondeur.",
     category: "Matériel médical",
+    rating: 4.3,
+    reviews: 30,
   },
   {
     id: 96,
@@ -1324,6 +1463,8 @@ export const products = [
     Description:
       "Pompe à insuline MiniMed 630G pour une gestion optimale du diabète.",
     category: "Matériel médical",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 97,
@@ -1337,6 +1478,8 @@ export const products = [
     Description:
       "Balance connectée avec mesure du poids, de la graisse corporelle et de l'indice de masse corporelle (IMC).",
     category: "Matériel médical",
+    rating: 2.0, // bad review
+    reviews: 7,
   },
   {
     id: 98,
@@ -1349,6 +1492,8 @@ export const products = [
     Description:
       "Dispositif TENS pour soulager les douleurs musculaires et articulaires à domicile.",
     category: "Matériel médical",
+    rating: 4.0,
+    reviews: 20,
   },
   {
     id: 99,
@@ -1362,6 +1507,8 @@ export const products = [
     Description:
       "Moniteur bébé audio et vidéo avec vision nocturne et portée longue distance.",
     category: "Matériel médical",
+    rating: 4.5,
+    reviews: 50,
   },
   {
     id: 100,
@@ -1375,6 +1522,8 @@ export const products = [
     Description:
       "Nébuliseur portable pour inhalation de médicaments, idéal pour les personnes souffrant de maladies respiratoires.",
     category: "Matériel médical",
+    rating: 4.0,
+    reviews: 10,
   },
   {
     id: 101,
@@ -1388,5 +1537,7 @@ export const products = [
     Description:
       "Pèse-personne numérique avec grande capacité et affichage facile à lire.",
     category: "Matériel médical",
+    rating: 4.3,
+    reviews: 30,
   },
 ];

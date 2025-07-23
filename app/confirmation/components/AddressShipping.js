@@ -11,7 +11,7 @@ const AddressShipping = ({ showSavedSection }) => {
         Shipping Address
       </h2>
       <form className=" space-y-4">
-        {/* القسم العادي */}
+        {/* section in normal */}
         <div className={showSavedSection ? "hidden " : "block space-y-4"}>
           <div className="flex md:flex-row flex-col gap-4">
             <Input
@@ -61,7 +61,7 @@ const AddressShipping = ({ showSavedSection }) => {
           </div>
         </div>
 
-        {/* القسم المحفوظ */}
+        {/* section in saved */}
         <section className={showSavedSection ? "space-y-4 block" : "hidden"}>
           <Input
             name="address"
