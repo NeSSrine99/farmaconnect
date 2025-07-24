@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Card from "../components/ui/Card";
 import { products } from "../categories/data";
 import { BsFillChatQuoteFill } from "react-icons/bs";
 import { useSearchParams } from "next/navigation";
 import CategoryFilter from "./components/CategoryFilter";
 import { FaChevronRight, FaHome } from "react-icons/fa";
+import Card from "../components/Card";
 
 const Categories = () => {
   const searchParams = useSearchParams();

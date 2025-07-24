@@ -1,7 +1,7 @@
 "use client";
 
 import { products } from "../categories/data";
-import Card from "./ui/Card";
+import Card from "./Card";
 
 export default function NewProductsCarousel() {
   const newProducts = products.filter((product) => product.nouveaux);

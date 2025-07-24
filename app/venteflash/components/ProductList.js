@@ -1,5 +1,5 @@
+import Card from "../../components/Card";
 import { products } from "../../categories/data";
-import Card from "../../components/ui/Card";
 
 export default function ProductList() {
   const flashProducts = products.filter((product) => product.reduction);

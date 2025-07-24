@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaUserMd } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
-import Button from "../components/ui/Button";
+import Button from "../components/Button";
 
 export default function ConsultationPage() {
   const [form, setForm] = useState({

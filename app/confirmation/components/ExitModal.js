@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { FaSave } from "react-icons/fa";
-import Button from "../../components/ui/Button";
+import Button from "../../components/Button";
 
 export default function ExitModal({
   onClose,

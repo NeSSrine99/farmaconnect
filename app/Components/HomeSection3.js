@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./ui/Button";
+import Button from "./Button";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 

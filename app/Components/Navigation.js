@@ -4,11 +4,12 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FaUser, FaAngleDown, FaSearch, FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-import CartIcon from "./ui/CartShoppingIcon";
+
 import ShoppingCart from "../components/ShoppingCart";
 import DropdownCategories from "./DropdownCategories";
-import Button from "./ui/Button";
+import Button from "./Button";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import CartIcon from "./CartShoppingIcon";
 
 export default function Navbar() {
   const [openCategories, setOpenCategories] = useState(false);

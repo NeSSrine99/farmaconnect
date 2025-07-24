@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-import Button from "./ui/Button";
+import Button from "./Button";
 
 export default function SanteConseilsSection() {
   return (

@@ -18,11 +18,11 @@ export default function Rating({
   const stars = Array.from({ length: total }, (_, index) => {
     const starValue = index + 1;
 
-    let icon = <FaRegStar className="text-yellow-400" size={20} />;
+    let icon = <FaRegStar className="text-yellow-400" size={18} />;
     if (displayRating >= starValue) {
-      icon = <FaStar className="text-yellow-400" size={20} />;
+      icon = <FaStar className="text-yellow-400" size={18} />;
     } else if (displayRating >= starValue - 0.5) {
-      icon = <FaStarHalfAlt className="text-yellow-400" size={20} />;
+      icon = <FaStarHalfAlt className="text-yellow-400" size={18} />;
     }
 
     if (variant === "interactive") {
