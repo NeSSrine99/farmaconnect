@@ -8,7 +8,7 @@ export default function CartIcon({ onClick }) {
   const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="relative cursor-pointer" onClick={onClick}>
+    <div id="cart-icon" className="relative cursor-pointer" onClick={onClick}>
       <MdOutlineShoppingCart size={24} />
       {totalQuantity > 0 && (
         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
