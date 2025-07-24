@@ -120,7 +120,7 @@ export const products = [
     nom: "Bioderma Atoderm Crème",
     prix: "65.00 TND",
     discount: "85.00 TND",
-    image: "/cardImgs/BiodermaAtodermCrème.jpeg",
+    image: "/cardImgs/BiodermaAtoderm.jpeg",
     nouveaux: "Recommandé",
     rupture: "En stock",
     Description:

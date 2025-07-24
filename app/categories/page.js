@@ -12,18 +12,17 @@ const Categories = () => {
   const category = searchParams.get("category");
 
   const [selectedBrand, setSelectedBrand] = useState("");
-  const [visibleCount, setVisibleCount] = useState(8); // عدد العناصر الظاهرة
-  const [itemsPerClick, setItemsPerClick] = useState(8); // يتم تعديلها حسب الشاشة
+  const [visibleCount, setVisibleCount] = useState(8);
+  const [itemsPerClick, setItemsPerClick] = useState(8);
 
   useEffect(() => {
-    // تحديد عدد المنتجات حسب حجم الشاشة
     const updateVisible = () => {
       if (window.innerWidth < 768) {
-        setVisibleCount(8);
-        setItemsPerClick(8);
-      } else {
         setVisibleCount(4);
         setItemsPerClick(4);
+      } else {
+        setVisibleCount(8);
+        setItemsPerClick(8);
       }
     };
 
