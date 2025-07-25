@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const DropdownCategories = forwardRef(function DropdownCategories(
   {
-    className = "absolute bg-white flex flex-col w-[200px] p-4 mt-2 shadow-defaultCard z-56",
+    className = "absolute bg-white flex flex-col w-[200px] p-4 mt-6 shadow-defaultCard z-56",
   },
   ref
 ) {

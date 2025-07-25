@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { products } from "../categories/data";
 import { BsFillChatQuoteFill } from "react-icons/bs";
@@ -6,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import CategoryFilter from "./components/CategoryFilter";
 import { FaChevronRight, FaHome } from "react-icons/fa";
 import Card from "../components/Card";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Categories = () => {
   const searchParams = useSearchParams();
@@ -47,50 +49,30 @@ const Categories = () => {
 
   return (
     <div className="w-full ">
-      <nav
-        className="flex items-center justify-center pt-20"
-        aria-label="breadcrumb"
-      >
-        <ol className="flex items-center flex-wrap gap-2">
-          <li>
-            <a
-              href="/"
-              className="text-primary hover:text-hoverButtonPrimary transition flex items-start justify-center gap-1 font-medium"
-            >
-              <FaHome className="w-4 h-4" />
-            </a>
-          </li>
-          <FaChevronRight className="text-gray-400 w-3 h-3" />
-          <li>
-            <a
-              href="/categories"
-              className="text-primary hover:text-hoverButtonPrimary transition font-medium"
-            >
-              Catégories
-            </a>
-          </li>
-          {category && (
-            <>
-              <FaChevronRight className="text-gray-400 w-3 h-3" />
-              <li>
-                <span className="text-gray-700 font-medium">{category}</span>
-              </li>
-            </>
-          )}
-        </ol>
-      </nav>
+      {/* ... breadcrumb nav ... */}
 
       <main className="flex flex-col items-center py-10  w-full">
         <div className="flex flex-col items-center justify-center w-full">
           <CategoryFilter />
         </div>
 
-        {/* Products */}
-        <div className="flex items-center  py-10  ">
+        {/* Products with animation */}
+        <div className="flex items-center py-10">
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 w-full max-w-7xl mx-auto">
-            {visibleProducts.map((product) => (
-              <Card key={product.id} {...product} />
-            ))}
+            <AnimatePresence mode="wait">
+              {visibleProducts.map((product) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  layout
+                >
+                  <Card {...product} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </div>
 

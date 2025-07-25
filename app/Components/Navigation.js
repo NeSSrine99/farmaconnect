@@ -4,12 +4,12 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FaUser, FaAngleDown, FaSearch, FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-
 import ShoppingCart from "../components/ShoppingCart";
 import DropdownCategories from "./DropdownCategories";
 import Button from "./Button";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import CartIcon from "./CartShoppingIcon";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar() {
   const [openCategories, setOpenCategories] = useState(false);
@@ -48,9 +48,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white shadow-md sticky top-0 z-50 px-4 lg:px-10 py-4">
+      <nav className="relative bg-white shadow-md sticky top-0 z-50 px-4 lg:px-10 py-4">
         <div className="flex items-center justify-between gap-4">
-          {/* ------------------- categories dropdown --------------------- */}
+          {/* Dropdown catégories */}
           <div className="relative">
             <button
               onClick={() => setOpenCategories(!openCategories)}
@@ -61,16 +61,24 @@ export default function Navbar() {
               <FaAngleDown size={14} />
             </button>
 
-            {openCategories && (
-              <div
-                ref={dropdownRef}
-                className="absolute mt-2 z-50 bg-white w-[220px] p-4 shadow-lg rounded-lg animate-fade-in"
-              >
-                <DropdownCategories />
-              </div>
-            )}
+            <AnimatePresence>
+              {openCategories && (
+                <motion.div
+                  ref={dropdownRef}
+                  key="dropdown"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute  z-100   shadow-lg rounded-lg"
+                >
+                  <DropdownCategories />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-          {/* ------------------- search bar mobile desktop--------------------- */}
+
+          {/* Search desktop */}
           <div className="hidden md:flex items-center border border-gray-300 rounded-lg overflow-hidden w-full max-w-full md:max-w-md">
             <input
               type="text"
@@ -87,10 +95,11 @@ export default function Navbar() {
               <FaSearch className="text-white" />
             </button>
           </div>
+
+          {/* Right side icons */}
           <div>
-            {/* -------------------- side buttons-------------------- */}
             <div className="flex items-center justify-between gap-3 w-full md:w-auto">
-              {/* ---------------- mobile search button ---------------- */}
+              {/* Mobile search button */}
               <button
                 onClick={() => setIsSearchOpen(true)}
                 className="md:hidden p-2 bg-gray-100 rounded-md text-gray-700"
@@ -98,23 +107,32 @@ export default function Navbar() {
                 <FaSearch />
               </button>
 
-              {/* ---------------- shopping cart ---------------- */}
-              <div className="relative">
+              {/* Shopping Cart */}
+              <div className="">
                 <Button
                   variant="ghost"
                   onClick={() => setIsCartOpen(!isCartOpen)}
-                  className="relative text-primary"
+                  className=" text-primary"
                 >
-                  <CartIcon className="w-5 h-5" />
+                  <CartIcon className="sm:relative w-5 h-5" />
                 </Button>
-                {isCartOpen && (
-                  <div className="absolute top-12 right-0 bg-white z-50 shadow-lg rounded-md animate-fade-in">
-                    <ShoppingCart />
-                  </div>
-                )}
+                <AnimatePresence>
+                  {isCartOpen && (
+                    <motion.div
+                      key="cart"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-16 sm:right-20 right-4 bg-white z-50 shadow-lg rounded-md"
+                    >
+                      <ShoppingCart />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
-              {/* ---------------- user button ---------------- */}
+              {/* User */}
               <SignedIn>
                 <UserButton
                   afterSignOutUrl="/"
@@ -140,48 +158,56 @@ export default function Navbar() {
                   </Button>
                 </SignInButton>
               </SignedOut>
-
-              {/* ---------------- Vente Flash ---------------- */}
-              {/* <Link href="/venteflash" className="cursor-pointer">
-              <Button variant="secondary">
-                <TiFlash />
-              </Button>
-            </Link> */}
             </div>
           </div>
         </div>
       </nav>
 
-      {/* ---------------- mobile search overlay ---------------- */}
-      {isSearchOpen && (
-        <div className="fixed inset-0 bg-black/60 bg-opacity-30 backdrop-blur-sm z-[9999] flex items-start justify-center pt-10 px-4">
-          <div className="bg-white w-full rounded-lg shadow-md max-w-md mx-auto p-4 relative">
-            <button
-              onClick={() => setIsSearchOpen(false)}
-              className="absolute top-2 right-2 text-gray-500"
+      {/* Mobile search overlay */}
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div
+            key="mobile-search"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/60 bg-opacity-30 backdrop-blur-sm z-[9999] flex items-start justify-center pt-10 px-4"
+          >
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white w-full rounded-lg shadow-md max-w-md mx-auto p-4 relative"
             >
-              <FaTimes />
-            </button>
-            <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-              <input
-                type="text"
-                placeholder="Rechercher des produits..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={handleKeyDown}
-                className="px-3 py-2 flex-1 text-sm text-gray-700 focus:outline-none"
-                autoFocus
-              />
               <button
-                onClick={handleSearch}
-                className="bg-gray-400 p-3 transition cursor-pointer"
+                onClick={() => setIsSearchOpen(false)}
+                className="absolute top-2 right-2 text-gray-500"
               >
-                <FaSearch className="text-white" />
+                <FaTimes />
               </button>
-            </div>
-          </div>
-        </div>
-      )}
+              <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                <input
+                  type="text"
+                  placeholder="Rechercher des produits..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className="px-3 py-2 flex-1 text-sm text-gray-700 focus:outline-none"
+                  autoFocus
+                />
+                <button
+                  onClick={handleSearch}
+                  className="bg-gray-400 p-3 transition cursor-pointer"
+                >
+                  <FaSearch className="text-white" />
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function Toast({ message, visible, onClose }) {
     if (visible) {
       const timer = setTimeout(() => {
         onClose();
-      }, 3000); // يخفي التوست بعد 3 ثوانٍ
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -16,7 +16,7 @@ export default function Toast({ message, visible, onClose }) {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-2 rounded-md shadow-lg transition-all animate-fade-in z-50">
+    <div className="fixed bottom-6 right-6 bg-red-600 text-white text-sm px-4 py-2 rounded-md shadow-lg transition-all animate-fade-in z-50">
       {message}
     </div>
   );

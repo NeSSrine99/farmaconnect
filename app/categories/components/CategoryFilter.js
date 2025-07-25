@@ -12,6 +12,7 @@ import {
   FaBriefcaseMedical,
   FaMedkit,
 } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const categories = [
   { name: "Médicaments", icon: <FaCapsules /> },
@@ -24,6 +25,8 @@ const categories = [
   { name: "Matériel médical", icon: <FaBriefcaseMedical /> },
   { name: "Promotion", icon: <FaMedkit /> },
 ];
+
+const activeBgColor = "#7C3AED";
 
 export default function CategoryFilter() {
   const searchParams = useSearchParams();
@@ -56,21 +59,37 @@ export default function CategoryFilter() {
             <button
               key={name}
               onClick={() => handleCategoryClick(name)}
-              className={`relative group flex-shrink-0 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center rounded-full border transition-all duration-300 ease-in-out text-lg z-10
-                ${
-                  isActive
-                    ? "bg-secondary text-white border-secondary shadow-lg scale-110"
-                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 hover:scale-105"
-                }`}
+              className="relative group flex-shrink-0 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center rounded-full border border-gray-300 text-lg z-10 overflow-hidden"
               style={{ scrollSnapAlign: "start" }}
             >
-              {icon}
+              {/* background for active button */}
+              {isActive && (
+                <motion.span
+                  layoutId="activeCategoryBg"
+                  className="absolute inset-0 rounded-full"
+                  style={{ backgroundColor: activeBgColor }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+
+              {/* الأيقونة والنص فوق الخلفية */}
+              <span
+                className={`relative z-10 transition-colors duration-300 ${
+                  isActive
+                    ? "text-white"
+                    : "text-gray-700 group-hover:text-gray-900"
+                }`}
+              >
+                {icon}
+              </span>
+
+              {/* hover in tooltip */}
               <span className="absolute z-20 bottom-full mb-2 px-2 py-1 rounded-md bg-black text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 {name}
               </span>
-              {isActive && (
-                <span className="absolute inset-0 bg-secondary opacity-20 rounded-full animate-pulse z-0"></span>
-              )}
             </button>
           );
         })}
