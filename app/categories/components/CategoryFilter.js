@@ -12,7 +12,7 @@ import {
   FaBriefcaseMedical,
   FaMedkit,
 } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const categories = [
   { name: "Médicaments", icon: <FaCapsules /> },
@@ -44,7 +44,7 @@ export default function CategoryFilter() {
   };
 
   return (
-    <div className="w-full overflow-x-auto scrollbar-hide px-4 sm:px-6 py-6">
+    <div className="w-full overflow-x-visible scrollbar-hide px-4 sm:px-6 py-6  relative">
       <div
         className="flex items-center justify-center gap-4 py-3 min-w-max"
         style={{
@@ -59,10 +59,10 @@ export default function CategoryFilter() {
             <button
               key={name}
               onClick={() => handleCategoryClick(name)}
-              className="relative group flex-shrink-0 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center rounded-full border border-gray-300 text-lg z-10 overflow-hidden"
+              className="relative group flex-shrink-0 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center rounded-full border border-gray-300 text-lg z-10 overflow-visible"
               style={{ scrollSnapAlign: "start" }}
             >
-              {/* background for active button */}
+              {/* background when active */}
               {isActive && (
                 <motion.span
                   layoutId="activeCategoryBg"
@@ -75,19 +75,19 @@ export default function CategoryFilter() {
                 />
               )}
 
-              {/* الأيقونة والنص فوق الخلفية */}
+              {/* icon */}
               <span
-                className={`relative z-10 transition-colors duration-300 ${
+                className={`relative z-20 transition-colors duration-300   ${
                   isActive
-                    ? "text-white"
-                    : "text-gray-700 group-hover:text-gray-900"
+                    ? "text-white animate-pulse"
+                    : "text-gray-700 group-hover:text-gray-900 "
                 }`}
               >
                 {icon}
               </span>
 
-              {/* hover in tooltip */}
-              <span className="absolute z-20 bottom-full mb-2 px-2 py-1 rounded-md bg-black text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              {/* text tooltip */}
+              <span className="absolute z-50 bottom-full mb-2 px-2 py-1 rounded-md bg-black text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 {name}
               </span>
             </button>
