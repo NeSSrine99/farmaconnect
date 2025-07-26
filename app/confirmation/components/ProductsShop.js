@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../../context/CartContext";
 import { BsTrash3 } from "react-icons/bs";
-import Button from "../../components/Button";
+import Button from "@shared/Button";
 
 const ProductsShop = () => {
   const {

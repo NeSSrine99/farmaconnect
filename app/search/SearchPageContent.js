@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { products } from "../categories/data";
-import Card from "../components/Card";
+import Card from "@shared/Card";
 
 export default function SearchPageContent() {
   const searchParams = useSearchParams();

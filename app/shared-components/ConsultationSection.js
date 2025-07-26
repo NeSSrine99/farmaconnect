@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import Button from "./Button";
 
-export default function SanteConseilsSection() {
+export default function ConsultationSection() {
   return (
     <section className="bg-white py-[100px] lg:px-[120px] sm:px-[32px] px-4">
       <div className="max-w-7xl mx-auto">

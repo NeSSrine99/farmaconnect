@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "../components/Button";
 import { BsTrash3 } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
+import Button from "@shared/Button";
 
 export default function CartPage() {
   const {

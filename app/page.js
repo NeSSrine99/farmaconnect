@@ -1,9 +1,9 @@
-import HomeSection1 from "./components/HomeSection1";
-import HomeSection3 from "./components/HomeSection3";
-import Banner from "./components/Banner";
-import PopularCategories from "./components/PopularCategories";
-import NewProducts from "./components/NewProducts";
-import ConsultationSection from "./components/ConsultationSection";
+import Banner from "@shared/Banner";
+import ConsultationSection from "@shared/ConsultationSection";
+import HomeSection1 from "@shared/HomeSection1";
+import HomeSection3 from "@shared/HomeSection3";
+import NewProducts from "@shared/NewProducts";
+import PopularCategories from "@shared/PopularCategories";
 
 export default function Home() {
   return (

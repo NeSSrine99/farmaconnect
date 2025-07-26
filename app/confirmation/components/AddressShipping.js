@@ -1,7 +1,8 @@
 "use client";
 
-import Button from "../../components/Button";
-import Input from "../../components/Input";
+import Button from "@shared/Button";
+import Input from "@shared/Input";
+
 import React from "react";
 
 const AddressShipping = ({ showSavedSection }) => {

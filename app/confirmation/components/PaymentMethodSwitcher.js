@@ -1,9 +1,11 @@
 "use client";
 
+import Button from "@shared/Button";
+import Input from "@shared/Input";
 import { useState } from "react";
-import Input from "../../components/Input";
+
 import { FaCcMastercard, FaCcVisa } from "react-icons/fa";
-import Button from "../../components/Button";
+
 import { FiAlertCircle } from "react-icons/fi";
 
 export default function PaymentMethodSwitcher({ showSavedSection }) {

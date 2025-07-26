@@ -1,4 +1,4 @@
-import Card from "../../components/Card";
+import Card from "@shared/Card";
 import { products } from "../../categories/data";
 
 export default function ProductList() {

@@ -4,10 +4,10 @@ import React, { useState, useEffect } from "react";
 import { products } from "../categories/data";
 import { BsFillChatQuoteFill } from "react-icons/bs";
 import { useSearchParams } from "next/navigation";
-import CategoryFilter from "./components/CategoryFilter";
-import { FaChevronRight, FaHome } from "react-icons/fa";
-import Card from "../components/Card";
+
 import { motion, AnimatePresence } from "framer-motion";
+import CategoryFilter from "@categories/CategoryFilter";
+import Card from "@shared/Card";
 
 const CategoriesContent = () => {
   const searchParams = useSearchParams();

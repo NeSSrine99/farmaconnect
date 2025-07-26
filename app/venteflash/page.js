@@ -1,7 +1,7 @@
+import VenteFlashBanner from "./components/Banner";
+import CallToAction from "./components/CallToAction";
 import Highlights from "./components/Highlights";
 import ProductList from "./components/ProductList";
-import CallToAction from "./components/CallToAction";
-import VenteFlashBanner from "./components/Banner";
 
 export const metadata = {
   title: "Vente Flash - Farmaconnect",

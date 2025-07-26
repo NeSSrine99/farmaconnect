@@ -3,13 +3,14 @@
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import { products } from "../data";
-import Favorite from "../../components/Favorite";
 import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
-import ProductSlider from "../components/ProductSlider";
+
 import { useCart } from "../../context/CartContext";
 import { FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
-import Button from "../../components/Button";
+import Button from "@shared/Button";
+import Favorite from "@shared/Favorite";
+import ProductSlider from "@categories/ProductSlider";
 
 const ProductDetails = () => {
   const { id } = useParams();

@@ -1,8 +1,8 @@
 "use client";
 
+import Button from "@shared/Button";
+import Input from "@shared/Input";
 import { useState } from "react";
-import Button from "../components/Button";
-import FormInput from "../components/Input";
 
 export default function OrdonnancePage() {
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ export default function OrdonnancePage() {
       >
         {/* Colonne 1: Infos personnelles */}
         <div className="space-y-4">
-          <FormInput
+          <Input
             name="nom"
             label="Nom complet (identique à la carte)"
             placeholder="Ex: Fatima Ben Salah"
@@ -48,7 +48,7 @@ export default function OrdonnancePage() {
             onChange={handleChange}
             required
           />
-          <FormInput
+          <Input
             name="tel"
             label="Numéro de téléphone"
             type="tel"
@@ -57,7 +57,7 @@ export default function OrdonnancePage() {
             onChange={handleChange}
             required
           />
-          <FormInput
+          <Input
             name="adresse"
             label="Adresse complète"
             placeholder="Ex: Rue de la santé, Tunis"
@@ -65,7 +65,7 @@ export default function OrdonnancePage() {
             onChange={handleChange}
             required
           />
-          <FormInput
+          <Input
             name="cin"
             label="Numéro de la carte d'identité (CIN)"
             placeholder="Ex: 01234567"
@@ -73,7 +73,7 @@ export default function OrdonnancePage() {
             onChange={handleChange}
             required
           />
-          <FormInput
+          <Input
             name="commentaire"
             label="Commentaire (optionnel)"
             placeholder="Ajoutez un message si nécessaire"

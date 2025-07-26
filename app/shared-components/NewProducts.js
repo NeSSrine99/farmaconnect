@@ -3,7 +3,7 @@
 import { products } from "../categories/data";
 import Card from "./Card";
 
-export default function NewProductsCarousel() {
+export default function NewProducts() {
   const newProducts = products.filter((product) => product.nouveaux);
 
   return (
