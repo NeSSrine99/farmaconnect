@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { useCart } from "../context/CartContext";
 import { motion, useAnimation } from "framer-motion";
 import { useRef, useState } from "react";
-import Toast from "./Toast"; // تأكد من مسار Toast
+import Toast from "./Toast"; 
 
 export default function Card({
   id,

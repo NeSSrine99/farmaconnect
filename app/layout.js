@@ -46,8 +46,8 @@ export default function RootLayout({ children }) {
         </head>
         <body className={`${poppins.variable} antialiased`}>
           <CartProvider>
-            <Header />
-            <Navbar />
+            {/* <Header />
+            <Navbar /> */}
             <main className="">
               {children}
               <Toaster position="top-right" />
