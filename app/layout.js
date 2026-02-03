@@ -19,20 +19,16 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={`${poppins.variable} antialiased`}>
-<<<<<<< Updated upstream
           <CartProvider>
             <Header />
             <Navbar />
             <main className="">
+            
               {children}
               <Toaster position="top-right" />
             </main>
             <Footer />
           </CartProvider>
-=======
-          {children}
-          <Toaster position="top-right" />
->>>>>>> Stashed changes
         </body>
       </html>
     </ClerkProvider>
