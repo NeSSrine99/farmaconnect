@@ -154,7 +154,7 @@ export default function Navbar() {
               </SignedIn>
 
               <SignedOut>
-                <SignInButton mode="modal">
+                <SignInButton mode="modal" asChild>
                   <Button variant="outline" className="p-2">
                     <FaUser size={20} className="text-gray-500" />
                   </Button>

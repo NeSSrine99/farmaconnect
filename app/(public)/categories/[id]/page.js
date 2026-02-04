@@ -8,9 +8,10 @@ import { MdDiscount, MdOutlineAddShoppingCart } from "react-icons/md";
 import { useCart } from "../../../context/CartContext";
 import { FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
-import Button from "app/(public)/shared-components/Button";
-import Favorite from "app/(public)/shared-components/Favorite";
-import ProductSlider from "app/(public)/categories/components/ProductSlider";
+import Button from "@shared/Button";
+import Favorite from "@shared/Favorite";
+import ProductSlider from "@categories/ProductSlider";
+
 
 const ProductDetails = () => {
   const { id } = useParams();

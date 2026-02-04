@@ -6,8 +6,9 @@ import { BsFillChatQuoteFill } from "react-icons/bs";
 import { useSearchParams } from "next/navigation";
 
 import { motion, AnimatePresence } from "framer-motion";
-import CategoryFilter from "app/(public)/categories/components/CategoryFilter";
-import Card from "app/(public)/shared-components/Card";
+import CategoryFilter from "./CategoryFilter";
+import Card from "@shared/Card";
+
 
 const CategoriesContent = () => {
   const searchParams = useSearchParams();

@@ -1,5 +1,6 @@
+import CategoriesContent from "@categories/CategoriesContent";
 import { Suspense } from "react";
-import CategoriesContent from "../(public)/categories/components/CategoriesContent";
+
 
 export default function categories() {
   return (
