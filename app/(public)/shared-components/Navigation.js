@@ -4,12 +4,17 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FaUser, FaAngleDown, FaSearch, FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  useAuth,
+} from "@clerk/nextjs";
 
 import DropdownCategories from "./DropdownCategories";
-
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import CartIcon from "./CartShoppingIcon";
-import { AnimatePresence, motion } from "framer-motion";
 import ShoppingCart from "./ShoppingCart";
 import Button from "./Button";
 
@@ -18,30 +23,67 @@ export default function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
   const dropdownRef = useRef(null);
   const router = useRouter();
+  const { isLoaded, isSignedIn, getToken } = useAuth();
 
+  // ✅ Mount guard (حل Hydration)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // ✅ Fetch user (client only – آمن)
+  useEffect(() => {
+    if (!isLoaded || !isSignedIn) return;
+
+    const fetchUser = async () => {
+      try {
+        const token = await getToken({ template: "backend" });
+        if (!token) return;
+
+        const res = await fetch("http://localhost:8000/api/user", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!res.ok) return;
+        const data = await res.json();
+        console.log("User data:", data);
+      } catch (err) {
+        console.error("Error fetching user:", err);
+      }
+    };
+
+    fetchUser();
+  }, [isLoaded, isSignedIn, getToken]);
+
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpenCategories(false);
       }
     };
+
     if (openCategories) {
       document.addEventListener("mousedown", handleClickOutside);
     }
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openCategories]);
 
+  // Search handlers
   const handleSearch = () => {
     const trimmed = searchTerm.trim();
-    if (trimmed) {
-      router.push(`/search?query=${encodeURIComponent(trimmed)}`);
-      setSearchTerm("");
-      setIsSearchOpen(false);
-    }
+    if (!trimmed) return;
+    router.push(`/search?query=${encodeURIComponent(trimmed)}`);
+    setSearchTerm("");
+    setIsSearchOpen(false);
   };
 
   const handleKeyDown = (e) => {
@@ -52,11 +94,11 @@ export default function Navbar() {
     <>
       <nav className="relative bg-white shadow-md sticky top-0 z-50 px-4 lg:px-10 py-4">
         <div className="flex items-center justify-between gap-4">
-          {/* Dropdown catégories */}
+          {/* Categories */}
           <div className="relative">
             <button
-              onClick={() => setOpenCategories(!openCategories)}
-              className="flex items-center gap-2 text-primary text-base font-semibold hover:text-hoverButtonPrimary transition"
+              onClick={() => setOpenCategories((p) => !p)}
+              className="flex items-center gap-2 text-primary font-semibold hover:text-hoverButtonPrimary transition"
             >
               <RxHamburgerMenu />
               <span>Catégories</span>
@@ -67,12 +109,11 @@ export default function Navbar() {
               {openCategories && (
                 <motion.div
                   ref={dropdownRef}
-                  key="dropdown"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute  z-100   shadow-lg rounded-lg"
+                  className="absolute z-50 shadow-lg rounded-lg bg-white"
                 >
                   <DropdownCategories />
                 </motion.div>
@@ -80,8 +121,8 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* Search desktop */}
-          <div className="hidden md:flex items-center border border-gray-300 rounded-lg overflow-hidden w-full max-w-full md:max-w-md">
+          {/* Desktop search */}
+          <div className="hidden md:flex items-center border border-gray-300 rounded-lg overflow-hidden w-full max-w-md">
             <input
               type="text"
               placeholder="Rechercher des produits..."
@@ -90,77 +131,76 @@ export default function Navbar() {
               onKeyDown={handleKeyDown}
               className="px-3 py-2 flex-1 text-sm text-gray-700 focus:outline-none"
             />
-            <button
-              onClick={handleSearch}
-              className="bg-gray-400 p-3 transition cursor-pointer"
-            >
+            <button onClick={handleSearch} className="bg-gray-400 p-3">
               <FaSearch className="text-white" />
             </button>
           </div>
 
-          {/* Right side icons */}
-          <div>
-            <div className="flex items-center justify-between gap-3 w-full md:w-auto">
-              {/* Mobile search button */}
-              <button
-                onClick={() => setIsSearchOpen(true)}
-                className="md:hidden p-2 bg-gray-100 rounded-md text-gray-700"
+          {/* Right side */}
+          <div className="flex items-center gap-3">
+            {/* Mobile search */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="md:hidden p-2 bg-gray-100 rounded-md text-gray-700"
+            >
+              <FaSearch />
+            </button>
+
+            {/* Cart */}
+            <div className="relative">
+              <Button
+                variant="ghost"
+                onClick={() => setIsCartOpen((p) => !p)}
+                className="text-primary"
               >
-                <FaSearch />
-              </button>
+                <CartIcon className="w-5 h-5" />
+              </Button>
 
-              {/* Shopping Cart */}
-              <div className="">
-                <Button
-                  variant="ghost"
-                  onClick={() => setIsCartOpen(!isCartOpen)}
-                  className=" text-primary"
-                >
-                  <CartIcon className="sm:relative w-5 h-5" />
-                </Button>
-                <AnimatePresence>
-                  {isCartOpen && (
-                    <motion.div
-                      key="cart"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-16 sm:right-20 right-4 bg-white z-50 shadow-lg rounded-md"
-                    >
-                      <ShoppingCart />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* User */}
-              <SignedIn>
-                <UserButton
-                  afterSignOutUrl="/"
-                  appearance={{
-                    elements: {
-                      userButtonAvatarBox: {
-                        width: "40px",
-                        height: "40px",
-                      },
-                      userButtonPopoverCard: {
-                        borderRadius: "12px",
-                        boxShadow: "0 0 10px rgba(0,0,0,0.1)",
-                      },
-                    },
-                  }}
-                />
-              </SignedIn>
-
-              <SignedOut>
-                <SignInButton mode="modal" asChild>
-                  <Button variant="outline" className="p-2">
-                    <FaUser size={20} className="text-gray-500" />
-                  </Button>
-                </SignInButton>
-              </SignedOut>
+              <AnimatePresence>
+                {isCartOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-14 right-0 bg-white z-50 shadow-lg rounded-md"
+                  >
+                    <ShoppingCart />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
+
+            {/* User (Client-only) */}
+            {mounted && (
+              <>
+                <SignedIn>
+                  <UserButton
+                    afterSignOutUrl="/"
+                    appearance={{
+                      elements: {
+                        userButtonAvatarBox: {
+                          width: "40px",
+                          height: "40px",
+                        },
+                        userButtonPopoverCard: {
+                          borderRadius: "12px",
+                          boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+                        },
+                      },
+                    }}
+                  />
+                </SignedIn>
+
+                <SignedOut>
+                  <SignInButton mode="modal" asChild>
+                    <Button variant="outline" className="p-2">
+                      <FaUser size={20} className="text-gray-500" />
+                    </Button>
+                  </SignInButton>
+                </SignedOut>
+              </>
+            )}
           </div>
         </div>
       </nav>
@@ -169,19 +209,17 @@ export default function Navbar() {
       <AnimatePresence>
         {isSearchOpen && (
           <motion.div
-            key="mobile-search"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/60 bg-opacity-30 backdrop-blur-sm z-[9999] flex items-start justify-center pt-10 px-4"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-start justify-center pt-10 px-4"
           >
             <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-white w-full rounded-lg shadow-md max-w-md mx-auto p-4 relative"
+              className="bg-white w-full max-w-md rounded-lg shadow-md p-4 relative"
             >
               <button
                 onClick={() => setIsSearchOpen(false)}
@@ -189,6 +227,7 @@ export default function Navbar() {
               >
                 <FaTimes />
               </button>
+
               <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                 <input
                   type="text"
@@ -196,13 +235,10 @@ export default function Navbar() {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="px-3 py-2 flex-1 text-sm text-gray-700 focus:outline-none"
                   autoFocus
+                  className="px-3 py-2 flex-1 text-sm text-gray-700 focus:outline-none"
                 />
-                <button
-                  onClick={handleSearch}
-                  className="bg-gray-400 p-3 transition cursor-pointer"
-                >
+                <button onClick={handleSearch} className="bg-gray-400 p-3">
                   <FaSearch className="text-white" />
                 </button>
               </div>
