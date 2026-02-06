@@ -29,18 +29,18 @@ export default function Navbar() {
   const router = useRouter();
   const { isLoaded, isSignedIn, getToken } = useAuth();
 
-  // ✅ Mount guard (حل Hydration)
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // ✅ Fetch user (client only – آمن)
   useEffect(() => {
     if (!isLoaded || !isSignedIn) return;
 
     const fetchUser = async () => {
       try {
         const token = await getToken({ template: "backend" });
+
+        console.log("Token:", token);
         if (!token) return;
 
         const res = await fetch("http://localhost:8000/api/user", {

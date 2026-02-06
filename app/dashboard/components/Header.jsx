@@ -23,7 +23,7 @@ export default function Header({
   const role = user?.publicMetadata?.role || "User";
 
   return (
-    <header className="h-16 bg-white px-6 flex items-center justify-between rounded-lg shadow ">
+    <header className="  bg-white px-6 py-2 flex items-center justify-between rounded-lg shadow ">
       
       {/* Left */}
       <div className="flex items-center gap-3">
@@ -47,7 +47,7 @@ export default function Header({
           )}
         </button>
 
-        <span className="font-semibold text-gray-800">Dashboard</span>
+        <span className="font-semibold lg:text-2xl text-gray-800">Dashboard</span>
       </div>
 
       {/* Right – User */}
@@ -65,7 +65,7 @@ export default function Header({
         <UserButton
           appearance={{
             elements: {
-              userButtonAvatarBox: "w-9 h-9",
+              userButtonAvatarBox: "w-12 h-12 border border-gray-300 rounded-full",
               userButtonPopoverCard:
                 "rounded-xl shadow-lg border",
             },

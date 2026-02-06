@@ -53,7 +53,7 @@ export default function Sidebar({
     <>
       <aside
         className={`
-          fixed md:static top-0 left-0 h-screen bg-white p-4
+          fixed md:static top-0 left-0 h-screen bg-white p-4 rounded-lg
           transition-all duration-300 shadow-lg z-40
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0
           ${sidebarCollapsed && !isMobile ? "w-20" : "w-64"}
