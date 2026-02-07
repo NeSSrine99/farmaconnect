@@ -88,7 +88,7 @@ const CategoriesContent = () => {
 
       {/* Products grid */}
       <div className="flex items-center py-10">
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 w-full max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1  gap-6 w-full max-w-7xl mx-auto">
           <AnimatePresence mode="wait">
             {visibleProducts.map((product) => (
               <motion.div

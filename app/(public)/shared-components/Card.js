@@ -186,7 +186,7 @@ export default function Card({
   const reduction =
     discount && price ? Math.round((discount / parseFloat(price)) * 100) : null;
 
-  const nouveaux = isNew ? "Nouveau" : "";
+  const nouveaux = isNew ? "New" : "";
   const rupture = availability !== "in stock" ? "Rupture" : "";
 
   const handleAdd = () => {
@@ -246,6 +246,11 @@ export default function Card({
             </div>
           )}
 
+          <div className="flex justify-between text-xs text-gray-500 absolute top-2 left-2 mt-1">
+            <span className="text-green-600  bg-red-600  ">{nouveaux}</span>
+            <span className="text-red-500">{rupture}</span>
+          </div>
+
           <Favorite className="absolute top-2 right-2" />
 
           <Link href={`/categories/${id}`}>
@@ -279,10 +284,7 @@ export default function Card({
             </div>
           </div>
 
-          <div className="flex justify-between text-xs text-gray-500 mt-1">
-            <span className="text-green-600">{nouveaux}</span>
-            <span className="text-red-500">{rupture}</span>
-          </div>
+          
 
           <Button
             onClick={handleAdd}
