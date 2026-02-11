@@ -166,15 +166,15 @@ import Toast from "./Toast";
 
 export default function Card({
   id,
-  brand = "Brand",
-  name = "Product Name", 
-  price = "0.00 TND", 
-  discount = 0, 
-  image = "/cardImgs/Bepanthen.jpeg", 
+  brand = "cetaphil",
+  name = "Cetaphil Sun SPF 50+",
+  price = "79.99",
+  discount = 20,
+  image = "../../../public/cardImgs/CetafilEcran.jpeg",
   isNew = false,
-  availability = "in stock", 
-  rating = 0, 
-  reviews = 0, 
+  availability = "in stock",
+  rating = 0,
+  reviews = 0,
 }) {
   const { addToCart } = useCart();
   const router = useRouter();
@@ -182,7 +182,6 @@ export default function Card({
   const imageRef = useRef(null);
   const [toastVisible, setToastVisible] = useState(false);
 
- 
   const reduction =
     discount && price ? Math.round((discount / parseFloat(price)) * 100) : null;
 
@@ -274,7 +273,7 @@ export default function Card({
           <div className="flex justify-between items-center text-sm mt-2">
             <div>
               {discount ? (
-                <p className="text-gray-400 line-through">{discount} TND</p>
+                <p className="text-gray-400 line-through">{discount} </p>
               ) : null}
               <p className="text-green-700 font-bold">{price} TND</p>
             </div>
@@ -283,8 +282,6 @@ export default function Card({
               <p className="text-gray-500">({reviews})</p>
             </div>
           </div>
-
-          
 
           <Button
             onClick={handleAdd}

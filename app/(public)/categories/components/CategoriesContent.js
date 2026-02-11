@@ -20,20 +20,20 @@ const CategoriesContent = () => {
 
   // Fetch products from backend
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    
 
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`${apiUrl}/api/products`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
         if (!res.ok) throw new Error("Network response was not ok");
 
         const data = await res.json();
-        console.log("Products:", data); 
+        console.log("Products:", data);
         setProducts(data);
       } catch (err) {
         console.error("Error fetching products:", err);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 

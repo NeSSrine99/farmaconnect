@@ -54,7 +54,7 @@ export default function Header({
       <div className="flex items-center gap-3">
         <div className="text-right hidden sm:block">
           <p className="text-sm font-medium text-gray-800">
-            {user.fullName}
+            {/* {user.fullName} */}
           </p>
           <p className="text-xs text-gray-500 capitalize">
             {role}

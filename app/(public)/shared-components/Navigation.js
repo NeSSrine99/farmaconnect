@@ -43,7 +43,7 @@ export default function Navbar() {
         console.log("Token:", token);
         if (!token) return;
 
-        const res = await fetch("http://localhost:8000/api/user", {
+        const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/user`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
